@@ -26,10 +26,10 @@ const ProductItem = ({ id, image, name, price }) => {
 };
 
 ProductItem.propTypes = {
-  image: PropTypes.arrayOf(PropTypes.string).isRequired,
-  id: PropTypes.arrayOf(PropTypes.string).isRequired,
-  name: PropTypes.arrayOf(PropTypes.string).isRequired,
-  price: PropTypes.arrayOf(PropTypes.number).isRequired,
+  image: PropTypes.arrayOf(PropTypes.string).isRequired, // This stays as array
+  id: PropTypes.string.isRequired, // Changed from array to string
+  name: PropTypes.string.isRequired, // Changed from array to string
+  price: PropTypes.number.isRequired, // Changed from array to number
 };
 
 export default ProductItem;

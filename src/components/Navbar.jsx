@@ -102,28 +102,28 @@ const Navbar = () => {
           <div className='flex flex-col pt-4'>
             <NavLink
               onClick={() => setIsVisible(false)}
-              className=' text-[1.4rem] text-slate-950 py-3 pl-6 border-b border-gray-100 hover:text-[#C586A5]'
+              className=' text-[1.4rem] text-slate-950 py-3 pl-6 border-b border-gray-100 hover:text-[#FF6881]'
               to='/'
             >
               HOME
             </NavLink>
             <NavLink
               onClick={() => setIsVisible(false)}
-              className=' text-[1.4rem] text-slate-950 py-3 pl-6 border-b border-gray-100 hover:text-[#C586A5]'
+              className=' text-[1.4rem] text-slate-950 py-3 pl-6 border-b border-gray-100 hover:text-[#FF6881]'
               to='/collection'
             >
               COLLECTION
             </NavLink>
             <NavLink
               onClick={() => setIsVisible(false)}
-              className=' text-[1.4rem] text-slate-950 py-3 pl-6 border-b border-gray-100 hover:text-[#C586A5]'
+              className=' text-[1.4rem] text-slate-950 py-3 pl-6 border-b border-gray-100 hover:text-[#FF6881]'
               to='/about'
             >
               ABOUT
             </NavLink>
             <NavLink
               onClick={() => setIsVisible(false)}
-              className=' text-[1.4rem] text-slate-950 py-3 pl-6 border-b border-gray-100 hover:text-[#C586A5]'
+              className=' text-[1.4rem] text-slate-950 py-3 pl-6 border-b border-gray-100 hover:text-[#FF6881]'
               to='/contact'
             >
               CONTACT

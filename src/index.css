@@ -4,9 +4,22 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body {
+  overflow-x: hidden;
+}
 * {
   font-family: Outfit;
 }
+
 a.active hr {
   display: block;
+}
+
+@media (max-width: 640px) {
+  a.active {
+    background-color: black;
+    color: #f1f1f1;
+  }
+
 }

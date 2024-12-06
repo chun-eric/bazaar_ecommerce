@@ -18,3 +18,4 @@ Day #1
 - Created a Latest Collections Component to render the latest 10 products
 - Created a Title Component to Dynamically Render the Title for Each products to display
 - Created a Product Item Component to map over for the Latest Collection
+- Created Best Seller Component to map over for the Best Seller Collection
