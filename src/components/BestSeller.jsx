@@ -49,9 +49,9 @@ const BestSeller = () => {
         ) : error ? (
           <div className='w-full text-center'>Error: {error.message}</div>
         ) : (
-          bestSellers.map((product) => (
+          bestSellers.map((product, index) => (
             <ProductItem
-              key={product._id}
+              key={index}
               id={product._id}
               image={product.image}
               name={product.name}
