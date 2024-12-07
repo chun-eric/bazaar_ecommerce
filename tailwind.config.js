@@ -11,6 +11,14 @@ export default {
         prata: ["Prata", "serif"],
         outfit: ["Outfit", "sans-serif"],
       },
+      colors: {
+        primary: "#F5F5F5",
+        secondary: "#414141",
+        pink: "#ffe0e5",
+      },
+      screens: {
+        xs: "480px",
+      },
     },
   },
   plugins: [],
