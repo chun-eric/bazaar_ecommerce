@@ -20,7 +20,8 @@ Day 1
 - Created a Product Item Component to map over for the Latest Collection
 - Created Best Seller Component to map over for the Best Seller Collection
 
-
 Day 2
-- Created Subscribe Component 
-- 
+
+- Created Subscribe Component
+- Created Policy Component
+- Created Footer Component
