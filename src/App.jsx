@@ -10,6 +10,7 @@ import PlaceOrder from "./pages/PlaceOrder";
 import Product from "./pages/Product";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { Analytics } from "@vercel/analytics/react";
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
         <Route path='/product/:id' element={<Product />} />
       </Routes>
       <Footer />
+      <Analytics />
     </div>
   );
 };
