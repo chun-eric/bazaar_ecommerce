@@ -11,6 +11,7 @@ const Collection = () => {
   const [filterProducts, setFilterProducts] = useState([]);
   const [category, setCategory] = useState([]);
   const [subCategory, setSubCategory] = useState([]);
+  const [sortType, setSortType] = useState("relevant");
 
   // function to add or remove clicked categories into category array
   const toggleCategory = (e) => {
@@ -56,13 +57,22 @@ const Collection = () => {
         subCategory.includes(product.subCategory)
       );
     }
-    setFilterProducts(productsCopy);
-  }, [products, category, subCategory]); // only recreate if products or category changes
 
-  // fetch the latest products on initial mount
-  useEffect(() => {
-    setFilterProducts(products);
-  }, [products]);
+    // Apply sorting feature within the apply filter as it needs the applied filter products
+    switch (sortType) {
+      case "low-high":
+        productsCopy.sort((a, b) => a.price - b.price);
+        break;
+      case "high-low":
+        productsCopy.sort((a, b) => b.price - a.price);
+        break;
+      default:
+        break;
+    }
+
+    // this will load all the products if no category or subcategory is selected so we dont need useEffect
+    setFilterProducts(productsCopy);
+  }, [products, category, subCategory, sortType]); // only recreate if products or category changes
 
   // check logic of category filter to see that it is adding and deleting from the array using applyFilter function
   useEffect(() => {
@@ -175,14 +185,17 @@ const Collection = () => {
         <div className='flex flex-col gap-2 md:flex-row justify-between sm:text-2xl mb-4'>
           <Title text1={"All"} text2={"COLLECTIONS"} />
           {/* Sort By */}
-          <select className='border font-light border-gray-300 text-sm px-2 py-2'>
-            <option value='relevance' className=''>
-              Sort by: Relevance
+          <select
+            onChange={(e) => setSortType(e.target.value)}
+            className='border font-light border-gray-300 text-sm px-2 py-2'
+          >
+            <option value='relevant' className=''>
+              Sort by: Relevant
             </option>
-            <option value='relevance' className=''>
+            <option value='low-high' className=''>
               Sort by: Low to High
             </option>
-            <option value='relevance' className=''>
+            <option value='high-low' className=''>
               Sort by: High to Low
             </option>
           </select>
