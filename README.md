@@ -25,3 +25,42 @@ Day 2
 - Created Subscribe Component
 - Created Policy Component
 - Created Footer Component
+
+Day 3
+
+- Created Collections Page
+- Created Product Filters Feature
+- Created Product Sort Feature
+
+Day 4
+
+- Created Search Feature
+- Created Individual Product Page
+- Created Add to cart Feature
+
+Day 5
+
+- Created Cart Page
+- Created Place Order Page
+- Created My Order Page
+
+Day 6
+
+- Created Login Page
+- Created About Us Page
+- Created Contact Us Page
+
+Day 7
+
+- Update all Copy
+- Update last minute design changes and pricing
+- Update any images
+
+Day 8
+
+- Accessiblity issues testing
+- Testing
+
+Day 9
+
+- Testing
