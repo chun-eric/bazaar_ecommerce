@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { createContext } from "react";
+import { createContext, useState } from "react";
 import { products } from "../assets/assets";
 
 // Create a context. Its like the mall or shared infrastructure.
@@ -10,6 +10,8 @@ const ShopContextProvider = (props) => {
   // add some shared variables
   const currency = "$";
   const delivery_fee = 10;
+  const [search, setSearch] = useState("");
+  const [showSearch, setShowSearch] = useState(false);
 
   // store shared data
   // provide the products object. We can now access it via context API within any component
@@ -17,6 +19,10 @@ const ShopContextProvider = (props) => {
     products,
     currency,
     delivery_fee,
+    search,
+    setSearch,
+    showSearch,
+    setShowSearch,
   };
 
   return (

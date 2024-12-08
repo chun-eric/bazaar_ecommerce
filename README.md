@@ -29,8 +29,10 @@ Day 2
 Day 3
 
 - Created Collections Page
-- Created Product Filters Feature
-- Created Product Sort Feature
+- Created Product Filters Feature ( useCallBack)
+- Created Product Sort Feature ( useCallBack )
+- Created Search Bar in Collections (useContext, useLocation).
+- When clicking on Search icon it directs us immediately to Collections page and search bar shows up.
 
 Day 4
 
