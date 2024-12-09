@@ -32,16 +32,16 @@ Day 3
 - Created Product Filters Feature ( useCallBack)
 - Created Product Sort Feature ( useCallBack )
 - Created Search Bar in Collections (useContext, useLocation).
-- When clicking on Search icon it directs us immediately to Collections page and search bar shows up.
+- When clicking on Search icon it directs us immediately to Collections page and search bar shows up. (useLocation in react router dom)
 
 Day 4
 
-- Created Search Feature
-- Created Individual Product Page
-- Created Add to cart Feature
+- Created Search Feature. Display products based on search query.
 
 Day 5
 
+- Created Individual Product Page
+- Created Add to cart Feature
 - Created Cart Page
 - Created Place Order Page
 - Created My Order Page
