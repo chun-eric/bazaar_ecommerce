@@ -6,7 +6,7 @@ import ProductItem from "../components/ProductItem";
 
 const Collection = () => {
   // access product data using context api
-  const { products } = useContext(ShopContext);
+  const { products, search, showSearch } = useContext(ShopContext);
   const [showFilter, setShowFilter] = useState(false);
   const [filterProducts, setFilterProducts] = useState([]);
   const [category, setCategory] = useState([]);
@@ -45,6 +45,13 @@ const Collection = () => {
     console.log("Selected categories:", category);
     console.log("Selected subcategories:", subCategory);
 
+    // if showSearch is open/true, and search is true/has some text in it, filter the products based on the search text
+    if (showSearch && search) {
+      productsCopy = productsCopy.filter((product) => {
+        return product.name.toLowerCase().includes(search.toLowerCase());
+      });
+    }
+
     // filter by category if there is one or more items in the array
     if (category.length > 0) {
       productsCopy = productsCopy.filter((product) =>
@@ -72,7 +79,7 @@ const Collection = () => {
 
     // this will load all the products if no category or subcategory is selected so we dont need useEffect
     setFilterProducts(productsCopy);
-  }, [products, category, subCategory, sortType]); // only recreate if products or category changes
+  }, [products, category, subCategory, sortType, search, showSearch]); // only recreate if products or category changes
 
   // check logic of category filter to see that it is adding and deleting from the array using applyFilter function
   useEffect(() => {
@@ -80,12 +87,12 @@ const Collection = () => {
   }, [applyFilter]);
 
   return (
-    <div className='flex flex-col sm:flex-row gap-2 sm:gap-10 pt-10 border-t'>
+    <div className='flex flex-col gap-2 pt-10 border-t sm:flex-row sm:gap-10'>
       {/* Filter Feature - Left Side */}
       <div className='min-w-60'>
         <p
           onClick={() => setShowFilter(!showFilter)}
-          className='my-2 text-xl flex items-center cursor-pointer gap-2 '
+          className='flex items-center gap-2 my-2 text-xl cursor-pointer '
         >
           FILTER
           <svg
@@ -94,7 +101,7 @@ const Collection = () => {
             viewBox='0 0 24 24'
             strokeWidth='1.5'
             stroke='currentColor'
-            className='w-5  text-gray-500 sm:hidden font-light'
+            className='w-5 font-light text-gray-500 sm:hidden'
           >
             <path
               strokeLinecap='round'
@@ -182,12 +189,12 @@ const Collection = () => {
       {/* Products Collection - Right Side */}
       <div className='flex-1'>
         {/* Title */}
-        <div className='flex flex-col gap-2 md:flex-row justify-between sm:text-2xl mb-4'>
+        <div className='flex flex-col justify-between gap-2 mb-4 md:flex-row sm:text-2xl'>
           <Title text1={"All"} text2={"COLLECTIONS"} />
           {/* Sort By */}
           <select
             onChange={(e) => setSortType(e.target.value)}
-            className='border font-light border-gray-300 text-sm px-2 py-2'
+            className='px-2 py-2 text-sm font-light border border-gray-300'
           >
             <option value='relevant' className=''>
               Sort by: Relevant
@@ -202,7 +209,7 @@ const Collection = () => {
         </div>
 
         {/* All Products to Map */}
-        <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6'>
+        <div className='grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 gap-y-6'>
           {filterProducts.map((product, index) => (
             <ProductItem
               key={index}

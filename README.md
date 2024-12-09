@@ -36,7 +36,7 @@ Day 3
 
 Day 4
 
-- Created Search Feature. Display products based on search query.
+- Created Search Feature. Display products based on search query. Updated the collections page with the search and showSearch from useContext. Added if conditions in the appliedFilter function and added search and showSearch as dependencies. 
 
 Day 5
 
