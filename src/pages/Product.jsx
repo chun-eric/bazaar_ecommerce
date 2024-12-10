@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
 import { ShopContext } from "../context/shopContext";
 import { assets } from "../assets/assets";
+import RelatedProducts from "../components/RelatedProducts";
 
 const Product = () => {
   // extract the id paramter from the URL
@@ -149,6 +150,12 @@ const Product = () => {
           <p className=''>{productData.description}</p>
         </div>
       </div>
+
+      {/* Display Related Products */}
+      <RelatedProducts
+        category={productData.category}
+        subCategory={productData.subCategory}
+      />
     </div>
   ) : (
     <div className='opacity-0'>Product not found</div>
