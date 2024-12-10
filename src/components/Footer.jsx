@@ -63,26 +63,26 @@ const Footer = () => {
         <p className='mb-5 text-xl font-medium'>COMPANY</p>
         <ul className='flex flex-col gap-2 text-gray-700'>
           <Link to='/'>
-            <li className='text-lg hover:text-gray-400'>Home</li>
+            <li className='text-sm hover:text-gray-400'>Home</li>
           </Link>
           <Link to='/about'>
-            <li className='text-lg hover:text-gray-400'>About Us</li>
+            <li className='text-sm hover:text-gray-400'>About Us</li>
           </Link>
           <Link to='/delivery'>
-            <li className='text-lg hover:text-gray-400'>Delivery</li>
+            <li className='text-sm hover:text-gray-400'>Delivery</li>
           </Link>
           <Link to='/privacy'>
-            <li className='text-lg hover:text-gray-400'>Privacy Policy</li>
+            <li className='text-sm hover:text-gray-400'>Privacy Policy</li>
           </Link>
         </ul>
       </div>
       <div className=''>
         <p className='mb-5 text-xl font-medium'>CONTACT</p>
         <ul className='flex flex-col gap-2 text-gray-700'>
-          <li className='text-lg cursor-pointer hover:text-gray-400'>
+          <li className='text-sm cursor-pointer hover:text-gray-400'>
             +81-123-456-789
           </li>
-          <li className='text-lg cursor-pointer hover:text-gray-400'>
+          <li className='text-sm cursor-pointer hover:text-gray-400'>
             support@bazaar.com
           </li>
         </ul>

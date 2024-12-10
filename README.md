@@ -36,11 +36,17 @@ Day 3
 
 Day 4
 
-- Created Search Feature. Display products based on search query. Updated the collections page with the search and showSearch from useContext. Added if conditions in the appliedFilter function and added search and showSearch as dependencies. 
+- Created Search Feature. Display products based on search query. Updated the collections page with the search and showSearch from useContext. Added if conditions in the appliedFilter function and added search and showSearch as dependencies.
 
-Day 5
+Day 5 (Today)
 
-- Created Individual Product Page
+- Created Individual Product Page based on its url. Issues big image not aligning height with small image
+  -- Stretch goals
+
+  1. add breadcrumbs to product categories,
+  2. add tabs on the description and Reviews,
+  3. dynamically add and read reviews
+
 - Created Add to cart Feature
 - Created Cart Page
 - Created Place Order Page
