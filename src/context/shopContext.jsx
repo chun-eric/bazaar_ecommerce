@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { createContext, useState, useEffect } from "react";
 import { products } from "../assets/assets";
+import { toast } from "react-toastify";
 
 // Create a context. Its like the mall or shared infrastructure.
 const ShopContext = createContext();
@@ -17,6 +18,12 @@ const ShopContextProvider = (props) => {
   // add to cart function
   // Upon refactor we can use zustand which is more modern and maintanable
   const addToCart = async (itemId, size) => {
+    // if size is not selected show toast error and return
+    if (!size) {
+      toast.error("Please select a Product Size");
+      return;
+    }
+
     // Deep clone of cartItems
     let newCartItems = structuredClone(cartItems);
 
@@ -44,6 +51,30 @@ const ShopContextProvider = (props) => {
     setCartItems(newCartItems);
   };
 
+  // get cart count function
+  const getCartCount = () => {
+    // set intial count
+    let totalCount = 0;
+
+    // loop through the items in cartItems
+    for (let items in cartItems) {
+      // loop through the sizes in cartItems
+      for (let size in cartItems[items]) {
+        try {
+          // if the quantity is greater than 0
+          if (cartItems[items][size] > 0) {
+            // add the quantity to the totalCount
+            totalCount += cartItems[items][size];
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    }
+    // return the total count value
+    return totalCount;
+  };
+
   // update cartItems on initial mount
   useEffect(() => {
     console.log(cartItems);
@@ -61,6 +92,7 @@ const ShopContextProvider = (props) => {
     setShowSearch,
     cartItems,
     addToCart,
+    getCartCount,
   };
 
   return (

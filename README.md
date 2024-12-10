@@ -48,9 +48,12 @@ Day 5 (Today)
   2. add tabs on the description and Reviews,
   3. dynamically add and read reviews
 
-- Created Add to cart Feature
-  Current solution seems overly complicated. Maybe try and look into zustand.
+- Created Add to cart Feature. Adds size and item addToCart function.
+- Added React toastify if add to cart button is pressed without any size selected.
+- Add the quantity dynamically to the cart icon getCartCount. Had trouble with the counter bug.
 
+  Current solution seems overly complicated. Maybe try and look into zustand.
+  Also we should have a quantity section
 
 Day 6
 

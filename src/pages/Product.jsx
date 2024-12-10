@@ -115,10 +115,6 @@ const Product = () => {
           {/* Add to Cart Button */}
           <button
             onClick={() => {
-              if (!size) {
-                alert("Please select a size first");
-                return;
-              }
               addToCart(productData._id, size);
             }}
             className='px-8 py-3 text-sm text-white bg-black active:bg-gray-700'
