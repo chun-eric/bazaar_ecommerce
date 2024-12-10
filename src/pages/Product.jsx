@@ -10,16 +10,13 @@ const Product = () => {
   console.log(id);
 
   // access products data using context api
-  const { products, currency } = useContext(ShopContext);
+  const { products, currency, addToCart } = useContext(ShopContext);
   // track loading/initialization of the product data
   const [loading, setLoading] = useState(false);
-
   // add the product data
   const [productData, setProductData] = useState(null);
-
   // add the product image - its the first image in the image array
   const [image, setImage] = useState("");
-
   // add the product size selection state
   const [size, setSize] = useState("");
 
@@ -116,7 +113,16 @@ const Product = () => {
           </div>
 
           {/* Add to Cart Button */}
-          <button className='px-8 py-3 text-sm text-white bg-black active:bg-gray-700'>
+          <button
+            onClick={() => {
+              if (!size) {
+                alert("Please select a size first");
+                return;
+              }
+              addToCart(productData._id, size);
+            }}
+            className='px-8 py-3 text-sm text-white bg-black active:bg-gray-700'
+          >
             ADD TO CART
           </button>
           <hr className='mt-8 md:w-4/5' />
@@ -132,7 +138,9 @@ const Product = () => {
       {/* Description and Review Sections */}
       <div className='mt-20'>
         <div className='flex '>
-          <b className='px-5 py-3 text-sm border cursor-pointer'>Description</b>
+          <b className='px-5 py-3 text-sm border cursor-pointer active:bg-black'>
+            Description
+          </b>
           <p className='px-5 py-3 text-sm border cursor-pointer'>
             Reviews (122)
           </p>

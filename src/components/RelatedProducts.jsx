@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../context/shopContext";
 import Title from "./Title";
 import ProductItem from "./ProductItem";
+import PropTypes from "prop-types";
 
 const RelatedProducts = ({ category, subCategory }) => {
   // get the products from useContext
@@ -23,7 +24,7 @@ const RelatedProducts = ({ category, subCategory }) => {
 
   return (
     <div className='my-24'>
-      <div className='py-2 text-3xl text-center '>
+      <div className='py-3 text-3xl text-center '>
         {/* Render Title */}
         <Title text1={"Related"} text2={"Products"}></Title>
       </div>
@@ -41,6 +42,11 @@ const RelatedProducts = ({ category, subCategory }) => {
       </div>
     </div>
   );
+};
+
+RelatedProducts.propTypes = {
+  category: PropTypes.string.isRequired,
+  subCategory: PropTypes.string.isRequired,
 };
 
 export default RelatedProducts;

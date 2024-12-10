@@ -41,6 +41,7 @@ Day 4
 Day 5 (Today)
 
 - Created Individual Product Page based on its url. Issues big image not aligning height with small image
+- Bugs - related products not keeping it to 5 products
   -- Stretch goals
 
   1. add breadcrumbs to product categories,
@@ -48,12 +49,14 @@ Day 5 (Today)
   3. dynamically add and read reviews
 
 - Created Add to cart Feature
-- Created Cart Page
-- Created Place Order Page
-- Created My Order Page
+  Current solution seems overly complicated. Maybe try and look into zustand.
+
 
 Day 6
 
+- Created Cart Page
+- Created Place Order Page
+- Created My Order Page
 - Created Login Page
 - Created About Us Page
 - Created Contact Us Page
