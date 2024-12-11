@@ -1,7 +1,8 @@
 import PropTypes from "prop-types";
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
 import { products } from "../assets/assets";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 // Create a context. Its like the mall or shared infrastructure.
 const ShopContext = createContext();
@@ -14,6 +15,7 @@ const ShopContextProvider = (props) => {
   const [search, setSearch] = useState("");
   const [showSearch, setShowSearch] = useState(false);
   const [cartItems, setCartItems] = useState({});
+  const navigate = useNavigate();
 
   // add to cart function
   // Upon refactor we can use zustand which is more modern and maintanable
@@ -23,7 +25,6 @@ const ShopContextProvider = (props) => {
       toast.error("Please select a Product Size");
       return;
     }
-
     // Deep clone of cartItems
     let newCartItems = structuredClone(cartItems);
 
@@ -46,8 +47,7 @@ const ShopContextProvider = (props) => {
       // set the size quantity to 1
       newCartItems[itemId][size] = 1;
     }
-
-    //
+    // set the new cartItems
     setCartItems(newCartItems);
   };
 
@@ -79,11 +79,39 @@ const ShopContextProvider = (props) => {
   const updateCartQuantity = async (itemId, size, quantity) => {
     // Deep clone of cartItems
     let newCartItems = structuredClone(cartItems);
-
     // set the new quantity to the product item size
     newCartItems[itemId][size] = quantity;
-
     setCartItems(newCartItems);
+  };
+
+  // get the cart amount/total price
+  const getCartAmount = () => {
+    // set initial amount
+    let totalAmount = 0;
+
+    // loop through the items in cartItems
+    for (let items in cartItems) {
+      // find the current product so we can get access to its price as well
+      let product = products.find((product) => product._id === items);
+
+      console.log(product);
+
+      // loop through the quantities in cartItems
+      for (let quantity in cartItems[items]) {
+        try {
+          // if the quantity is greater than 0
+          if (cartItems[items][quantity] > 0) {
+            // add the total price (price * quantity) to the total amount
+            totalAmount += product.price * cartItems[items][quantity];
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    }
+
+    // return the total amount value
+    return totalAmount;
   };
 
   // store shared data
@@ -100,6 +128,8 @@ const ShopContextProvider = (props) => {
     addToCart,
     getCartCount,
     updateCartQuantity,
+    getCartAmount,
+    navigate,
   };
 
   return (

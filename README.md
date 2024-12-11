@@ -60,12 +60,19 @@ Day 6 (Today)
 - Created Cart Page
 - Show each product item in cart page
 - Delete each product item with updateCartQuantity function in the shopContext provider
-- Able to modify quantity amount for each product and dynamically update it in the cart icon
+- Able to modify quantity amount for each product and dynamically update it in the cart icon using onChange with a handleQuantityChange function
+- CartTotal Component that updates the subtotal and total based on the product quantity including adding delivery fee
+- Created a getCartAmount function (got rid of async function as it was causing errors)
+- Also made sure that when there is no items in the cart the shipping fee should be 0.
+- \*\*\* Stretch Goals - save Cart to local storage \*\*\*
+- add useNavigate to the shopContext when clicking on the Proceed to check --> /place-order
 
+---
+
+- Created Place Order Page
 
 Day 7
 
-- Created Place Order Page
 - Created My Order Page
 - Created Login Page
 - Created About Us Page
