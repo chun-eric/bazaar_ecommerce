@@ -75,10 +75,16 @@ const ShopContextProvider = (props) => {
     return totalCount;
   };
 
-  // update cartItems on initial mount
-  useEffect(() => {
-    console.log(cartItems);
-  }, [cartItems]);
+  // update cart quantity function (can add or delete)
+  const updateCartQuantity = async (itemId, size, quantity) => {
+    // Deep clone of cartItems
+    let newCartItems = structuredClone(cartItems);
+
+    // set the new quantity to the product item size
+    newCartItems[itemId][size] = quantity;
+
+    setCartItems(newCartItems);
+  };
 
   // store shared data
   // provide the products object. We can now access it via context API within any component
@@ -93,6 +99,7 @@ const ShopContextProvider = (props) => {
     cartItems,
     addToCart,
     getCartCount,
+    updateCartQuantity,
   };
 
   return (

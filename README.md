@@ -52,20 +52,20 @@ Day 5 (Today)
 - Added React toastify if add to cart button is pressed without any size selected.
 - Add the quantity dynamically to the cart icon getCartCount. Had trouble with the counter bug.
 
-  Current solution seems overly complicated. Maybe try and look into zustand.
+  Current solution seems overly complicated. Maybe try and look into zustand after completing first project completion run.
   Also we should have a quantity section
 
-Day 6
+Day 6 (Today)
 
 - Created Cart Page
+
+Day 7
+
 - Created Place Order Page
 - Created My Order Page
 - Created Login Page
 - Created About Us Page
 - Created Contact Us Page
-
-Day 7
-
 - Update all Copy
 - Update last minute design changes and pricing
 - Update any images
