@@ -11,6 +11,14 @@ const Cart = () => {
   // store cart data
   const [cartData, setCartData] = useState([]);
 
+  // update cart quantity change
+  const handleQuantityChange = (productId, size, e) => {
+    if (e.target.value === "" || e.target.value === "0") {
+      return null;
+    }
+    updateCartQuantity(productId, size, Number(e.target.value));
+  };
+
   // runs whenever cartItems change
   useEffect(() => {
     const tempData = [];
@@ -76,6 +84,7 @@ const Cart = () => {
 
               {/* Quantity */}
               <input
+                onChange={(e) => handleQuantityChange(item._id, item.size, e)}
                 type='number'
                 min={1}
                 value={item.quantity}

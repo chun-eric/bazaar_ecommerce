@@ -58,6 +58,10 @@ Day 5 (Today)
 Day 6 (Today)
 
 - Created Cart Page
+- Show each product item in cart page
+- Delete each product item with updateCartQuantity function in the shopContext provider
+- Able to modify quantity amount for each product and dynamically update it in the cart icon
+
 
 Day 7
 
