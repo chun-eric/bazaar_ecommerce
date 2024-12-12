@@ -52,22 +52,22 @@ const About = () => {
       </div>
 
       {/* Benefits */}
-      <div className='flex flex-col mb-20 text-sm md:flex-row'>
-        <div className='flex flex-col gap-5 px-10 py-8 border md:px-16 sm:py-20 transition-all duration-100 ease-in-out hover:bg-[#ffbbdd] '>
+      <div className='flex flex-col mb-32 text-sm md:flex-row'>
+        <div className='flex flex-col gap-5 px-10 py-8 border md:px-16 sm:py-20 transition-all duration-100 ease-in-out hover:bg-[#e0ffe0] '>
           <b className='text-base'>Quality Aussurance</b>
           <p className='text-gray-600 '>
             We carefully test and choose products that will last longer and work
             better for you, saving you time and money in the long run.
           </p>
         </div>
-        <div className='flex flex-col gap-5 px-10 py-8 border md:px-16 sm:py-20 transition-all duration-100 ease-in-out hover:bg-[#ffbbdd] '>
+        <div className='flex flex-col gap-5 px-10 py-8 border md:px-16 sm:py-20 transition-all duration-100 ease-in-out hover:bg-[#e0ffe0] '>
           <b className='text-base'>Convenience</b>
           <p className='text-gray-600'>
             Find and buy exactly what you need in just a few clicks - no
             complicated menus or confusing checkout processes to slow you down.
           </p>
         </div>
-        <div className='flex flex-col gap-5 px-10 py-8 border md:px-16 sm:py-20 transition-all duration-100 ease-in-out hover:bg-[#ffbbdd] '>
+        <div className='flex flex-col gap-5 px-10 py-8 border md:px-16 sm:py-20 transition-all duration-100 ease-in-out hover:bg-[#e0ffe0] '>
           <b className='text-base'>Exceptional Service</b>
           <p className='text-gray-600'>
             Get expert help whenever you need it from real people who actually
