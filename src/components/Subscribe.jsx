@@ -1,6 +1,6 @@
 const Subscribe = () => {
   return (
-    <div className='text-center bg-[#ffe0e5] py-12'>
+    <div className='text-center bg-[#ffe0e5] py-16'>
       <p className='mt-2 text-2xl font-medium text-slate-950'>
         Subscribe & get 15% off
       </p>
@@ -9,7 +9,7 @@ const Subscribe = () => {
         industry.
       </p>
       <div className='max-w-lg px-4 mx-auto'>
-        <form className='flex flex-col w-full gap-2 mt-6 gapitems-center xs:flex-row xs:gap-0'>
+        <form className='flex flex-col items-center w-full gap-2 mt-6 gap xs:flex-row xs:gap-0'>
           <input
             type='email'
             className='w-full h-12 px-4 border border-r-0 outline-none'

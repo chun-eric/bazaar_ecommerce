@@ -69,14 +69,20 @@ Day 6 (Today)
 
 ---
 
-- Created Place Order Page
-
 Day 7
 
-- Created My Order Page
-- Created Login Page
+- Created Place Order Page. Had trouble with setting the active payments border. The issue was there was no color in tailwind css, so i just added a custom color.
+- Added a useNavigate value in the shopContext so all components can have access to it
+- Fix Created place order responsiveness
+
+- Created My Order Page. Its still not linked to the login user so we cant track the actual orders put in the cart. Its just dummy data for the UI
+- Also need to fix responsiveness
+
+- Created Login Page. Add the navigation link in our drop down menu on the profile icon. Linked it to login page. At Login page made a simple sign up and login form that changes based on state. Change to login form when clicking Login Here or change to sign up form when clicking Sign Up. This also includes changing button to the different state. Added a form submit handler function on the form.
+
 - Created About Us Page
 - Created Contact Us Page
+
 - Update all Copy
 - Update last minute design changes and pricing
 - Update any images
