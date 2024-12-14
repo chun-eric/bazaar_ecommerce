@@ -80,18 +80,72 @@ Day 7
 
 - Created Login Page. Add the navigation link in our drop down menu on the profile icon. Linked it to login page. At Login page made a simple sign up and login form that changes based on state. Change to login form when clicking Login Here or change to sign up form when clicking Sign Up. This also includes changing button to the different state. Added a form submit handler function on the form.
 
-- Created About Us Page
-- Created Contact Us Page
-
-- Update all Copy
-- Update last minute design changes and pricing
-- Update any images
-
 Day 8
 
-- Accessiblity issues testing
-- Testing
+- Created About Us Page
 
 Day 9
 
+- Reviewing our Ecommerce store. Its structure and functions
+
+Here are my thoughts so far.
+Our App has Navbar and Footer set. It has a searchbar component to show on collections page and Routes to all our different pages.
+
+There are 8 pages in our App (so far)
+
+1. Home
+2. Collection
+3. About
+4. Cart
+5. Orders
+6. PlaceOrders
+7. Product
+8. Login
+
+The entire App is wrapped in a ShopContextProvider and then the BrowserRouter. This will allow us to send and receive values across all our components.
+
+The ShopContextProvider needs a prop sinces its children being the App itself can receive all the shared values.
+
+The ShopContextProvider has key functions
+
+1. addToCart
+2. getCartCount
+3. updateCartQuantity
+4. getCartAmount
+
+It also provides access to the:
+
+1. products catalogue (the entire products array)
+2. delivery fee (standardized)
+3. show search bar
+4. search text (setSearch)
+5. useNavigate (to navigate to certain pages via react router dom)
+
+Components
+
+1. Cart
+2. Collection
+3. Contact
+4. Home
+5. Login
+6. Orders
+7. PlaceOrder
+8. Product
+
+Refactoring the main functions in the shopContext.js
+
+1. getCartCount()
+2. updateCartQuantity()
+3. getCartAmount()
+4. addToCart()
+
+Main reason for refactoring is because there were to many nested if statements.
+
+Day 9
+
+- refactoring
 - Testing
+- Accessiblity issues testing
+- Update all Copy
+- Update last minute design changes and pricing
+- Update any images

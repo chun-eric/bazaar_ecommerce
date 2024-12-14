@@ -26,8 +26,8 @@ const Navbar = () => {
           <p className='uppercase'>Collection</p>
           <hr className='w-1/2 border-none h-[2px] bg-gray-700 hidden' />
         </NavLink>
-        <NavLink to='/about' className='flex flex-col items-center gap-1 '>
-          <p className='uppercase'>About</p>
+        <NavLink to='/latest' className='flex flex-col items-center gap-1 '>
+          <p className='uppercase'>Latest</p>
           <hr className='w-1/2 border-none h-[2px] bg-gray-700 hidden' />
         </NavLink>
         {/* <NavLink to='/contact' className='flex flex-col items-center gap-1 '>
@@ -126,9 +126,9 @@ const Navbar = () => {
             <NavLink
               onClick={() => setIsVisible(false)}
               className=' text-[1.4rem] text-slate-950 py-3 pl-6 border-b border-gray-100 hover:text-[#FF6881]'
-              to='/about'
+              to='/latest'
             >
-              ABOUT
+              LATEST
             </NavLink>
             <NavLink
               onClick={() => setIsVisible(false)}
