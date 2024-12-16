@@ -21,6 +21,15 @@ const Product = () => {
   // add the product size selection state
   const [size, setSize] = useState("");
 
+  // add arrow toggle state
+  const [arrowToggle, setArrowToggle] = useState(false);
+
+  const handleClick = () => {
+    setArrowToggle(!arrowToggle);
+  };
+
+  console.log(arrowToggle);
+
   const fetchProductData = async () => {
     try {
       setLoading(true);
@@ -129,13 +138,44 @@ const Product = () => {
 
           {/* Accordian - Product Details */}
           <div className='flex flex-col gap-1 mt-5 text-sm text-gray-500'>
-            <div className=''>
+            <div className='relative flex items-center justify-between'>
               <p className='text-base font-bold tracking-wide text-slate-950'>
                 Benefits
               </p>
+              <div className=''>
+                <svg
+                  onClick={() => handleClick}
+                  xmlns='http://www.w3.org/2000/svg'
+                  fill='none'
+                  viewBox='0 0 24 24'
+                  strokeWidth={1.5}
+                  stroke='currentColor'
+                  className='font-[0.8rem] size-6 text-slate-900 cursor-pointer absolute'
+                >
+                  <path
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    d='m19.5 8.25-7.5 7.5-7.5-7.5'
+                  />
+                </svg>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  fill='none'
+                  viewBox='0 0 24 24'
+                  strokeWidth={1.5}
+                  stroke='currentColor'
+                  className='font-[0.8rem] size-6 text-slate-900 cursor-pointer absolute right-0 top-0'
+                >
+                  <path
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    d='m4.5 15.75 7.5-7.5 7.5 7.5'
+                  />
+                </svg>
+              </div>
             </div>
-            <div className='mt-2'>
-              <p>100% Natural</p>
+            <div className='flex flex-col gap-1 mt-2 text-[0.9rem] right-0 top-0'>
+              <p className=''>100% Natural</p>
               <p>Easy Return and exchange policy within 30 days</p>
             </div>
           </div>

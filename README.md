@@ -153,6 +153,7 @@ Day 9
      \*\*\* the above issue is very buggy- This was very hard for some reason. Ended up adding a custom break point at 900px. The main issue was the big picture image. As you scale up in screen size the as it is object cover it doesnt contain the image in the cneter. So we had to use a custom breakpoint to stop it from growing. Probably there is a better solution like shrink or something but its taking way too much time. I will come back to this.
 
   6. Adding breadcurmbs - complete
+  7. Started working on benefit toggle
 
 - Testing
 - Accessiblity issues testing
