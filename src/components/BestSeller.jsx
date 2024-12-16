@@ -34,16 +34,15 @@ const BestSeller = () => {
   return (
     <div className='my-10'>
       {/* TITLE */}
-      <div className='text-center py-8 text-3xl'>
+      <div className='py-8 text-3xl text-center'>
         <Title text1='Best Sellers' text2='Collection' />
-        <p className='w-3/4 m-auto text-xs sm:text-sm md:text-base text-gray-600'>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry.{" "}
+        <p className='w-3/4 m-auto text-sm text-gray-600 sm:text-sm md:text-base'>
+          Discover our most-loved styles, handpicked by our community{" "}
         </p>
       </div>
 
       {/* RENDER BEST SELLERS COLLECTION - ADD PRODUCT ITEM COMPONENT */}
-      <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 '>
+      <div className='grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-5 '>
         {loading ? (
           <div className='w-full text-center'>Loading...</div>
         ) : error ? (

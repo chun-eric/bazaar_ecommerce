@@ -144,6 +144,16 @@ Main reason for refactoring is because there were to many nested if statements.
 Day 9
 
 - refactoring
+
+  1. Latest Collections design and code
+  2. Change the Bazaar Logo
+  3. Update Hero Image
+  4. Update copy for the bestsellers and latest collection
+  5. Issues with responsivness on the productData container for the images. It wasnt shrinking together.
+     \*\*\* the above issue is very buggy
+
+  6. Adding breadcurmbs
+
 - Testing
 - Accessiblity issues testing
 - Update all Copy

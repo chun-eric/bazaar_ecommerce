@@ -35,18 +35,17 @@ const LatestCollection = () => {
   // console.log("Bottom right image:", latestProducts[7]);
 
   return (
-    <div className='my-16'>
+    <div className='w-full h-full my-16'>
       {/* TITLE */}
       <div className='py-8 text-3xl text-center'>
         <Title text1='Latest' text2='Collection' />
-        {/* <p className='w-3/4 m-auto text-xs text-gray-600 sm:text-sm md:text-base'>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry.{" "}
-        </p> */}
+        <p className='w-3/4 m-auto text-xs text-gray-600 sm:text-sm md:text-base'>
+          Fresh designs that blend contemporary style with everyday comfort{" "}
+        </p>
       </div>
 
       {/* RENDER LATEST COLLECTION - ADD PRODUCT ITEM COMPONENT */}
-      <div className='w-full px-1 mx-auto mt-4 mb-20 sm:px-0'>
+      <div className='w-full px-1 mx-auto mt-4 mb-20 sm:px-0 '>
         {
           // map over the latest products and render the product item component
           loading ? (

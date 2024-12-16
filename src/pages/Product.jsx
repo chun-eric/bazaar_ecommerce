@@ -3,6 +3,7 @@ import { useContext, useState, useEffect } from "react";
 import { ShopContext } from "../context/shopContext";
 import { assets } from "../assets/assets";
 import RelatedProducts from "../components/RelatedProducts";
+import BreadCrumb from "../components/BreadCrumb";
 
 const Product = () => {
   // extract the id paramter from the URL
@@ -40,28 +41,27 @@ const Product = () => {
   return productData ? (
     <div className='pt-10 transition-opacity duration-500 ease-in border-t-2 opacity-100'>
       {/* Entire Product Data Container */}
-      <div className='flex flex-col h-full gap-12 sm:flex-row '>
+      <div className='flex flex-col gap-8 lg:flex-row'>
         {/* Product Images container (both small images and one big image) */}
-        <div className='flex flex-col-reverse flex-1 h-auto gap-3 sm:flex-row'>
+        <div className='flex flex-col-reverse  gap-3 sm:flex-row max-w-[600px] lg:h-[520px] justify-between  '>
           {/* Small Images */}
-          <div
-            className='flex justify-between overflow-x-auto 
-           sm:flex-col sm:overflow-y-auto sm:justify-normal sm:w-[18.7%] w-full sm:h-[100%]   '
-          >
+          <div className='flex flex-row gap-2 w-full sm:h-full justify-between overflow-x-auto sm:flex-col lg:w-[100px] '>
             {productData.image.map((image, index) => (
               <img
                 onClick={() => setImage(image)}
                 src={image}
                 key={index}
-                className='w-[20%] h-auto sm:w-full sm:mb-3 flex-shrink-0 cursor-pointer'
+                className={`w-[22%] max-w-[400px] sm:w-full  cursor-pointer object-cover ${
+                  index !== productData.image.length - 1 ? "sm:mb-3" : ""
+                } h-[120px]`}
               ></img>
             ))}
           </div>
 
           {/* Large Image */}
-          <div className='flex w-full sm:w-[75%] sm:h-[100%] items-start'>
+          <div className=' w-full  lg:w-[450px] h-[520px] '>
             <img
-              className='object-cover w-full '
+              className='object-contain w-full h-full '
               src={image}
               alt={productData.name}
             />
@@ -70,6 +70,11 @@ const Product = () => {
 
         {/* Product Details */}
         <div className='flex-1'>
+          {/* BreadCrumb */}
+          <BreadCrumb
+            category={productData.category}
+            subCategory={productData.subCategory}
+          />
           {/* Product Name */}
           <h1 className='mt-1 text-2xl font-medium'>{productData.name}</h1>
 

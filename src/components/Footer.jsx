@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <div className='flex flex-col sm:grid grid-cols-[1fr,1fr,1fr]  gap-14 sm:gap-16 my-10 mt-40 text-sm border-t py-12'>
       <div className='flex flex-col'>
-        <img src={assets.logo} alt='logo' className='w-24 mb-5' />
+        <img src={assets.logo2} alt='logo' className='w-24 mb-5' />
         <div className='flex gap-2'>
           <Link to='/instagram' className='hover:text-gray-600'>
             <svg
