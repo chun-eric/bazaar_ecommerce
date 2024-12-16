@@ -18,6 +18,7 @@ export default {
       },
       screens: {
         xs: "480px",
+        "md-lg": "900px",
       },
     },
   },

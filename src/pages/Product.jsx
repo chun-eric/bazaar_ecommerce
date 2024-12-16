@@ -41,27 +41,26 @@ const Product = () => {
   return productData ? (
     <div className='pt-10 transition-opacity duration-500 ease-in border-t-2 opacity-100'>
       {/* Entire Product Data Container */}
-      <div className='flex flex-col gap-8 lg:flex-row'>
+      <div className='flex flex-col gap-8 sm:flex-1 md-lg:flex-row'>
         {/* Product Images container (both small images and one big image) */}
-        <div className='flex flex-col-reverse  gap-3 sm:flex-row max-w-[600px] lg:h-[520px] justify-between  '>
+        <div className='flex flex-col-reverse gap-3 sm:flex-row max-w-[1023px] sm:h-[520px] justitfy-between sm:justify-start '>
           {/* Small Images */}
-          <div className='flex flex-row gap-2 w-full sm:h-full justify-between overflow-x-auto sm:flex-col lg:w-[100px] '>
+          <div className='flex flex-row gap-1 w-full sm:h-full  justify-between overflow-x-auto sm:flex-col sm:w-[100px]'>
             {productData.image.map((image, index) => (
               <img
                 onClick={() => setImage(image)}
                 src={image}
                 key={index}
-                className={`w-[22%] max-w-[400px] sm:w-full  cursor-pointer object-cover ${
+                className={`w-[24%] sm:w-full h-[24%] cursor-pointer object-cover ${
                   index !== productData.image.length - 1 ? "sm:mb-3" : ""
                 } h-[120px]`}
               ></img>
             ))}
           </div>
-
           {/* Large Image */}
-          <div className=' w-full  lg:w-[450px] h-[520px] '>
+          <div className=' w-full sm:flex-1 lg:w-[450px] h-[520px] flex items-center justify-center '>
             <img
-              className='object-contain w-full h-full '
+              className='object-cover w-full h-full sm:object-cover '
               src={image}
               alt={productData.name}
             />
@@ -128,10 +127,17 @@ const Product = () => {
           </button>
           <hr className='mt-8 md:w-4/5' />
 
-          {/* Product Details */}
+          {/* Accordian - Product Details */}
           <div className='flex flex-col gap-1 mt-5 text-sm text-gray-500'>
-            <p>100% Natural</p>
-            <p>Easy Return and exchange policy within 30 days</p>
+            <div className=''>
+              <p className='text-base font-bold tracking-wide text-slate-950'>
+                Benefits
+              </p>
+            </div>
+            <div className='mt-2'>
+              <p>100% Natural</p>
+              <p>Easy Return and exchange policy within 30 days</p>
+            </div>
           </div>
         </div>
       </div>
@@ -143,7 +149,7 @@ const Product = () => {
             Description
           </b>
           <p className='px-5 py-3 text-sm border cursor-pointer'>
-            Reviews (122)
+            Reviews (140)
           </p>
         </div>
         <div className='flex flex-col gap-5 px-6 py-6 text-sm text-gray-500 border'>

@@ -150,9 +150,9 @@ Day 9
   3. Update Hero Image
   4. Update copy for the bestsellers and latest collection
   5. Issues with responsivness on the productData container for the images. It wasnt shrinking together.
-     \*\*\* the above issue is very buggy
+     \*\*\* the above issue is very buggy- This was very hard for some reason. Ended up adding a custom break point at 900px. The main issue was the big picture image. As you scale up in screen size the as it is object cover it doesnt contain the image in the cneter. So we had to use a custom breakpoint to stop it from growing. Probably there is a better solution like shrink or something but its taking way too much time. I will come back to this.
 
-  6. Adding breadcurmbs
+  6. Adding breadcurmbs - complete
 
 - Testing
 - Accessiblity issues testing
