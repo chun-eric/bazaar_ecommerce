@@ -8,27 +8,17 @@ import BreadCrumb from "../components/BreadCrumb";
 const Product = () => {
   // extract the id paramter from the URL
   const { id } = useParams();
-  console.log(id);
-
-  // access products data using context api
-  const { products, currency, addToCart } = useContext(ShopContext);
-  // track loading/initialization of the product data
-  const [loading, setLoading] = useState(false);
-  // add the product data
-  const [productData, setProductData] = useState(null);
-  // add the product image - its the first image in the image array
-  const [image, setImage] = useState("");
-  // add the product size selection state
-  const [size, setSize] = useState("");
-
-  // add arrow toggle state
-  const [arrowToggle, setArrowToggle] = useState(false);
+  const { products, currency, addToCart } = useContext(ShopContext); // access products data using context api
+  const [loading, setLoading] = useState(false); //track loading/initialization of product data
+  const [productData, setProductData] = useState(null); // add the product data
+  const [image, setImage] = useState(""); //add the product image - the first image in image array
+  const [size, setSize] = useState(""); // add the product size selection state
+  const [arrowToggle, setArrowToggle] = useState(false); // add arrow toggle state
+  const [activeTab, setActiveTab] = useState("description"); // add active tab state
 
   const handleClick = () => {
     setArrowToggle(!arrowToggle);
   };
-
-  console.log(arrowToggle);
 
   const fetchProductData = async () => {
     try {
@@ -214,12 +204,13 @@ const Product = () => {
       {/* Description and Review Sections */}
       <div className='mt-20'>
         <div className='flex '>
-          <b className='px-5 py-3 text-sm border cursor-pointer active:bg-black'>
+          { /* Tabs */}
+          <button className='px-5 py-3 text-sm border cursor-pointer rounded-tl-md rounded-tr-md active:bg-gray-200 active:text-white'>
             Description
-          </b>
-          <p className='px-5 py-3 text-sm border cursor-pointer'>
+          </button>
+          <button className='px-5 py-3 text-sm border cursor-pointer rounded-tl-md rounded-tr-md'>
             Reviews (140)
-          </p>
+          </button>
         </div>
         <div className='flex flex-col gap-5 px-6 py-6 text-sm text-gray-500 border'>
           {/* <p className=''>
@@ -233,6 +224,7 @@ const Product = () => {
           </p> */}
           <p className=''>{productData.description}</p>
         </div>
+        <div className=""></div>
       </div>
 
       {/* Display Related Products */}
