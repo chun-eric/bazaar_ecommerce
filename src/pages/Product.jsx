@@ -4,6 +4,8 @@ import { ShopContext } from "../context/shopContext";
 import { assets } from "../assets/assets";
 import RelatedProducts from "../components/RelatedProducts";
 import BreadCrumb from "../components/BreadCrumb";
+import renderStars from "../components/RenderStars";
+import Star from "../components/Star";
 
 const Product = () => {
   // extract the id paramter from the URL
@@ -15,9 +17,38 @@ const Product = () => {
   const [size, setSize] = useState(""); // add the product size selection state
   const [arrowToggle, setArrowToggle] = useState(false); // add arrow toggle state
   const [activeTab, setActiveTab] = useState("description"); // add active tab state
+  const [sortReview, setSortReview] = useState("highest"); // add sort review state
+  const [averageRating, setAverageRating] = useState(0); // add average rating state
 
+  //  handle arrow toggle
   const handleClick = () => {
     setArrowToggle(!arrowToggle);
+  };
+
+  // calculate average rating
+  const calculateAverageRating = (reviews) => {
+    if (!reviews || reviews.length === 0) return 0;
+    const sum = reviews.reduce((acc, review) => acc + review.rating);
+    return (sum / reviews.length).toFixed(1);
+  };
+
+  // sort Reviews
+  const getSortedReviews = () => {
+    if (!productData?.reviews) return [];
+    return [...productData.reviews].sort((a, b) => {
+      return sortReview === "highest"
+        ? b.rating - a.rating
+        : a.rating - b.rating;
+    });
+  };
+
+  // format date function
+  const formatDate = (dateString) => {
+    return new Date(dateString).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
   };
 
   const fetchProductData = async () => {
@@ -83,7 +114,7 @@ const Product = () => {
             <img src={assets.star_icon} alt='star' className='w-3 ' />
             <img src={assets.star_icon} alt='star' className='w-3 ' />
             <img src={assets.star_dull_icon} alt='star' className='w-3 ' />
-            <p className='pl-2'>(140)</p>
+            <p className='pl-2'>({productData.reviews.length})</p>
           </div>
 
           {/* Product Price */}
@@ -204,27 +235,115 @@ const Product = () => {
       {/* Description and Review Sections */}
       <div className='mt-20'>
         <div className='flex '>
-          { /* Tabs */}
-          <button className='px-5 py-3 text-sm border cursor-pointer rounded-tl-md rounded-tr-md active:bg-gray-200 active:text-white'>
+          {/* Tabs */}
+          <button
+            onClick={() => setActiveTab("description")}
+            className={`tracking-wide px-5 py-3 text-sm border cursor-pointer rounded-tl-lg rounded-tr-lg  ${
+              activeTab === "description" ? "bg-gray-600 text-white" : ""
+            }`}
+          >
             Description
           </button>
-          <button className='px-5 py-3 text-sm border cursor-pointer rounded-tl-md rounded-tr-md'>
-            Reviews (140)
+          <button
+            onClick={() => setActiveTab("reviews")}
+            className={`tracking-wide px-5 py-3 text-sm border cursor-pointer rounded-tl-lg rounded-tr-lg ${
+              activeTab === "reviews" ? "bg-gray-600 text-white" : ""
+            }`}
+          >
+            Reviews ({productData.reviews.length})
           </button>
         </div>
         <div className='flex flex-col gap-5 px-6 py-6 text-sm text-gray-500 border'>
-          {/* <p className=''>
-            An e-commerce website is an online platform that facilitates the
-            buying and selling of products or services over the internet. It
-            serves as a virtual marketplace where businesses and individuals can
-            showcase their products, interact with customers, and conduct
-            transactions without the need for a physical presence. E-commerce
-            websites have gained immense popularity due to their convenience,
-            accessibility, and the global reach they offer.
-          </p> */}
-          <p className=''>{productData.description}</p>
+          {activeTab === "description" ? (
+            // Display Description
+            <div className='flex flex-col gap-5'>
+              <p className='text-sm text-[#333] tracking-wide'>
+                {productData.description}
+              </p>
+            </div>
+          ) : (
+            // Display Reviews
+            <div className='flex flex-col gap-6'>
+              <div className='flex flex-col justify-between gap-4 pb-4 mb-4 '>
+                <div className='flex flex-col items-center justify-between gap-2 pb-5 border-b border-gray-300 sm:flex-row'>
+                  <div className='flex items-end justify-between gap-2 '>
+                    <span className='text-3xl font-bold text-slate-950'>
+                      {renderStars(Math.round(averageRating))}
+                    </span>
+                    <span className='ml-2 text-lg text-slate-950'>
+                      Based on {productData.reviews?.length || 0} reviews
+                    </span>
+                  </div>
+
+                  <div className='flex items-center gap-2 '>
+                    <span className='text-sm text-slate-950'>Sort by:</span>
+                    <select
+                      value={sortReview}
+                      onChange={(e) => setSortReview(e.target.value)}
+                      className='px-3 py-2 border outline-none border-slate-300 text-slate-950 text-bold'
+                    >
+                      <option className='text-bold' value='highest'>
+                        Highest Rating
+                      </option>
+                      <option className='text-bold' value='lowest'>
+                        Lowest Rating
+                      </option>
+                    </select>
+                  </div>
+                </div>
+
+                {/* Reviews List */}
+                <div className='flex flex-col gap-8'>
+                  {getSortedReviews().map((review) => (
+                    <div className='flex flex-col gap-1 pb-6 ' key={review._id}>
+                      <div className='flex flex-col items-start gap-1'>
+                        {renderStars(review.rating)}
+                        <span className='text-xl font-bold text-gray-950'>
+                          {review.title}
+                        </span>
+                      </div>
+                      <p className='text-base text-[#333] '>{review.body}</p>
+                      <div className='flex flex-col items-start gap-2 text-sm text-gray-500'>
+                        <div className='flex items-center gap-4 mt-5'>
+                          <span className='text-base font-bold leading-wider text-neutral-950'>
+                            {review.username}
+                          </span>
+                          <span className='text-sm'>
+                            {formatDate(review.date)}
+                          </span>
+                        </div>
+                        <div className=''>
+                          {review.verified_purchase && (
+                            <div className='flex items-center gap-1'>
+                              <span>
+                                <svg
+                                  xmlns='http://www.w3.org/2000/svg'
+                                  fill='none'
+                                  viewBox='0 0 24 24'
+                                  strokeWidth={1.5}
+                                  stroke='currentColor'
+                                  className='text-green-900 size-6'
+                                >
+                                  <path
+                                    strokeLinecap='round'
+                                    strokeLinejoin='round'
+                                    d='M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z'
+                                  />
+                                </svg>
+                              </span>
+                              <span className='italic'>Verified Buyer</span>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
         </div>
-        <div className=""></div>
+        <div className=''></div>
       </div>
 
       {/* Display Related Products */}

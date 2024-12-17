@@ -159,7 +159,7 @@ Day 10
 
 - Completed Benefit Toggle
 - Complete Tab Component
-- 
+- Complete Review. \*\*\* Bug issue, render stars in the review section and product review section. Separated Star and Render Stars into separate components. Okay it was simply a return error. 
 
 Day 11
 
