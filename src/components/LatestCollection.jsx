@@ -35,7 +35,7 @@ const LatestCollection = () => {
   // console.log("Bottom right image:", latestProducts[7]);
 
   return (
-    <div className='w-full h-full my-16'>
+    <div className='w-full my-16 '>
       {/* TITLE */}
       <div className='py-8 text-3xl text-center'>
         <Title text1='Latest' text2='Collection' />
@@ -53,73 +53,87 @@ const LatestCollection = () => {
           ) : error ? (
             <div className='w-full text-center'>Error: {error.message}</div>
           ) : (
-            <div className='grid w-full grid-cols-2 gap-2 sm:gap-4 '>
-              {/* Left side - takes up half */}
-              <div className='relative w-full h-full cursor-pointer'>
-                {latestProducts[0] && (
-                  <Link to={`/collection`}>
-                    <div className='relative w-full h-full overflow-hidden'>
-                      <img
-                        src={
-                          latestProducts[0].image ||
-                          "https://api/placeholder/500/500"
-                        }
-                        alt={latestProducts[0].name}
-                        className='object-cover w-full h-full transition-all duration-100 ease-in-out rounded-sm hover:scale-105'
-                      />
-                      {/* <div className='absolute left-[-0.5rem] hidden p-2 text-xl text-black bottom-8 lg:block'>
-                        <button className='px-6 py-1 font-bold font-outfit'>
-                          SHOP NOW
-                        </button>
-                      </div> */}
-                    </div>
-                  </Link>
-                )}
-              </div>
-
-              {/* Right side - takes up half */}
-              <div className='flex flex-col h-full gap-2 sm:gap-4 '>
-                {/* Top Right */}
-                <div className='grid grid-cols-2 gap-2 h-1/2 sm:gap-4 '>
-                  {latestProducts.slice(2, 4).map((products, index) => (
-                    <Link key={products._id} to={`/product/${products._id}`}>
-                      <div
-                        key={index}
-                        className='relative w-full h-full overflow-hidden cursor-pointer'
-                      >
-                        <img
-                          src={
-                            products?.image || "https://api/placeholder/300/300"
-                          }
-                          alt={products.name}
-                          className='inset-0 object-cover w-full h-full transition-all duration-100 ease-in-out rounded-sm hover:scale-105'
-                        />
+            <div className='max-h-[44rem] h-full min-h-[24rem]'>
+              <div className='grid w-full grid-cols-2 gap-2 sm:gap-4  aspect-[16/9]'>
+                {/* Left side - takes up half */}
+                <div className='relative w-full cursor-pointer max-h-[44rem] '>
+                  {latestProducts[0] && (
+                    <Link to={`/collection`} clasName='block h-full'>
+                      <div className='relative h-full overflow-hidden transition-all duration-200 ease-in-out hover:shadow-lg'>
+                        <div className='absolute inset-0 flex items-center justify-center'>
+                          <img
+                            src={
+                              latestProducts[0].image ||
+                              "https://api/placeholder/500/500"
+                            }
+                            alt={latestProducts[0].name}
+                            className='absolute inset-0 object-cover w-full h-full transition-all duration-100 ease-in-out rounded-sm hover:scale-105 '
+                          />
+                        </div>
+                        {/* <div className='absolute left-[0.5rem] hidden p-2 text-xl text-black bottom-8 lg:block'>
+                          <button className='px-6 py-1 font-bold font-outfit'>
+                            SHOP NOW
+                          </button>
+                        </div> */}
                       </div>
                     </Link>
-                  ))}
+                  )}
                 </div>
 
-                {/* Bottom Right */}
-                <div className='relative w-full h-1/2'>
-                  {latestProducts[5] && (
-                    <Link
-                      key={products._id}
-                      to={`/product/${latestProducts[5]._id}`}
-                    >
-                      <div className='relative h-full overflow-hidden cursor-pointer'>
-                        <img
-                          src={latestProducts[5].image}
-                          alt={latestProducts[5].name}
-                          className='absolute top-0 left-0 object-cover object-top w-full h-full transition-all duration-100 ease-in-out rounded-sm hover:scale-105'
-                        />
-                        {/* <div className='absolute p-2 bg-[#000000]  rounded bottom-4 left-4 px-4 text-sm'>
+                {/* Right side - takes up half */}
+                <div className='flex flex-col h-full gap-2 sm:gap-4  max-h-[44rem]'>
+                  {/* Top Right */}
+                  <div className='grid grid-cols-2 gap-2 h-1/2 sm:gap-4 '>
+                    {latestProducts.slice(2, 4).map((products, index) => (
+                      <Link
+                        key={products._id}
+                        to={`/product/${products._id}`}
+                        className='block h-full'
+                      >
+                        <div
+                          key={index}
+                          className='relative w-full h-full overflow-hidden transition-all duration-200 ease-in-out cursor-pointer hover:shadow-lg'
+                        >
+                          <div className='absolute inset-0 flex items-center justify-center'>
+                            <img
+                              src={
+                                products?.image ||
+                                "https://api/placeholder/300/300"
+                              }
+                              alt={products.name}
+                              className='object-cover w-full h-full transition-all duration-100 ease-in-out rounded-sm hover:scale-105'
+                            />
+                          </div>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+
+                  {/* Bottom Right */}
+                  <div className='relative w-full h-1/2'>
+                    {latestProducts[5] && (
+                      <Link
+                        className='block h-full'
+                        key={products._id}
+                        to={`/product/${latestProducts[5]._id}`}
+                      >
+                        <div className='relative h-full overflow-hidden transition-all duration-200 ease-in-out cursor-pointer hover:shadow-lg'>
+                          <div className='absolute inset-0 flex items-center justify-center'>
+                            <img
+                              src={latestProducts[5].image}
+                              alt={latestProducts[5].name}
+                              className='object-cover object-top w-full h-full transition-all duration-100 ease-in-out rounded-sm hover:scale-105'
+                            />
+                            {/* <div className='absolute p-2 bg-[#000000]  rounded bottom-4 left-4 px-4 text-sm'>
                         <button className='text-white uppercase font-outfit'>
                           Shop Now
                         </button>
                       </div> */}
-                      </div>
-                    </Link>
-                  )}
+                          </div>
+                        </div>
+                      </Link>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
