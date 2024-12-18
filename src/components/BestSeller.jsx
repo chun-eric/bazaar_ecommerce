@@ -19,7 +19,7 @@ const BestSeller = () => {
       // filter the best seller products
       const bestProducts = products.filter((product) => product.bestseller);
       // grab only 5 best sellers
-      setBestSellers(bestProducts.slice(0, 5));
+      setBestSellers(bestProducts.slice(0, 11));
       setError(null);
     } catch (error) {
       setError(error);
@@ -32,7 +32,7 @@ const BestSeller = () => {
   console.log(bestSellers);
 
   return (
-    <div className='my-10'>
+    <div className='my-[6rem] sm:my-[8rem]'>
       {/* TITLE */}
       <div className='py-8 text-3xl text-center'>
         <Title text1='Best Sellers' text2='Collection' />

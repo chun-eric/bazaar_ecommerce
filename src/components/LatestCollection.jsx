@@ -56,7 +56,7 @@ const LatestCollection = () => {
             <div className='max-h-[44rem] h-full min-h-[24rem]'>
               <div className='grid w-full grid-cols-2 gap-2 sm:gap-4  aspect-[16/9]'>
                 {/* Left side - takes up half */}
-                <div className='relative w-full cursor-pointer max-h-[44rem] '>
+                <div className='relative w-full cursor-pointer max-h-[44rem] border border-gray-400'>
                   {latestProducts[0] && (
                     <Link to={`/collection`} clasName='block h-full'>
                       <div className='relative h-full overflow-hidden transition-all duration-200 ease-in-out hover:shadow-lg'>
@@ -92,7 +92,7 @@ const LatestCollection = () => {
                       >
                         <div
                           key={index}
-                          className='relative w-full h-full overflow-hidden transition-all duration-200 ease-in-out cursor-pointer hover:shadow-lg'
+                          className='relative w-full h-full overflow-hidden transition-all duration-200 ease-in-out border border-gray-400 cursor-pointer hover:shadow-lg'
                         >
                           <div className='absolute inset-0 flex items-center justify-center'>
                             <img
@@ -110,7 +110,7 @@ const LatestCollection = () => {
                   </div>
 
                   {/* Bottom Right */}
-                  <div className='relative w-full h-1/2'>
+                  <div className='relative w-full border border-gray-400 h-1/2'>
                     {latestProducts[5] && (
                       <Link
                         className='block h-full'

@@ -55,6 +55,7 @@ import p_img51 from "./p_img51.png";
 import p_img52 from "./p_img52.png";
 
 import logo from "./logo.png";
+import footer_logo from "./footer_logo.png";
 import hero_img from "./hero_img.png";
 import cart_icon from "./cart_icon.png";
 import bin_icon from "./bin_icon.png";
@@ -73,15 +74,18 @@ import razorpay_logo from "./razorpay_logo.png";
 import stripe_logo from "./stripe_logo.png";
 import cross_icon from "./cross_icon.png";
 import hero_img2 from "./hero_img2.png";
-import hero_img3 from "./hero_img3.png";
+import hero_image3 from "./hero_image3.png";
 import hero_img4 from "./hero_img4.png";
+import hero_image from "./hero_image.png";
 
 export const assets = {
   logo,
+  footer_logo,
   hero_img,
   hero_img2,
-  hero_img3,
+  hero_image3,
   hero_img4,
+  hero_image,
   cart_icon,
   dropdown_icon,
   exchange_icon,
@@ -1064,7 +1068,7 @@ export const products = [
     subCategory: "Topwear",
     sizes: ["S", "M", "L", "XL"],
     date: 1716653045448,
-    bestseller: false,
+    bestseller: true,
     reviews: [
       {
         review_id: 1,
@@ -1112,7 +1116,7 @@ export const products = [
     subCategory: "Winterwear",
     sizes: ["S", "M", "L", "XL"],
     date: 1716655245448,
-    bestseller: false,
+    bestseller: true,
     reviews: [
       {
         review_id: 1,
@@ -1208,7 +1212,7 @@ export const products = [
     subCategory: "Winterwear",
     sizes: ["S", "M", "L", "XL"],
     date: 1716659645448,
-    bestseller: false,
+    bestseller: true,
     reviews: [
       {
         review_id: 1,
@@ -1304,7 +1308,7 @@ export const products = [
     subCategory: "Winterwear",
     sizes: ["S", "M", "L", "XL"],
     date: 1716664045448,
-    bestseller: false,
+    bestseller: true,
     reviews: [
       {
         review_id: 1,

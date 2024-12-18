@@ -166,9 +166,9 @@ Day 11
 - Finish Reviews system
   1. calculate reviews average
   2. add the stars fill for reviews in the reviews section and the product listing section. I was making a mistake when rendering the stars. I already had access to each individual review so all i needed to do was just access it. I was trying to get access to the productData array instead which is incorrect.
-  3. Add box shadow to the main large image
-  4. Change main image of new colletions.
-  5. Add box shadow and highlight
+  3. Add box shadow to the main large image 
+  4. Change main image of new colletions. **
+  5. Add box shadow and highlight -- done
   6. checkout page icons for payment
 - Testing
 - Accessiblity issues testing

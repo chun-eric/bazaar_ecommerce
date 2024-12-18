@@ -1,6 +1,6 @@
 const Subscribe = () => {
   return (
-    <div className='text-center bg-[#ffe0e5] py-16'>
+    <div className='text-center bg-[#FED2D1] py-16'>
       <p className='mt-2 text-2xl font-medium text-slate-950'>
         Subscribe & get 15% off
       </p>

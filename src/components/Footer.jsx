@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className='flex flex-col sm:grid grid-cols-[1fr,1fr,1fr]  gap-14 sm:gap-16 my-10 mt-40 text-sm border-t py-12'>
-      <div className='flex flex-col'>
-        <img src={assets.logo} alt='logo' className='w-24 mb-5' />
-        <div className='flex gap-2 pl-2'>
+    <div className='flex flex-col sm:grid grid-cols-[1fr,1fr,1fr]  gap-14 sm:gap-16 my-10 mt-40 text-sm border-t py-12 bg-[#212121] text-white'>
+      <div className='flex flex-col '>
+        <img src={assets.footer_logo} alt='logo' className='w-24 mb-5' />
+        <div className='flex gap-2 pl-2 '>
           <Link to='/instagram' className='hover:text-gray-600'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -60,8 +60,8 @@ const Footer = () => {
         </div>
       </div>
       <div className=''>
-        <p className='mb-5 text-xl font-medium'>COMPANY</p>
-        <ul className='flex flex-col gap-2 text-gray-700'>
+        <p className='mb-5 text-lg font-medium'>COMPANY</p>
+        <ul className='flex flex-col gap-4 text-white'>
           <Link to='/'>
             <li className='text-sm hover:text-gray-400'>Home</li>
           </Link>
@@ -76,9 +76,9 @@ const Footer = () => {
           </Link>
         </ul>
       </div>
-      <div className=''>
-        <p className='mb-5 text-xl font-medium'>CONTACT</p>
-        <ul className='flex flex-col gap-2 text-gray-700'>
+      <div className='text-white'>
+        <p className='mb-5 text-lg font-medium'>CONTACT</p>
+        <ul className='flex flex-col gap-4 text-white'>
           <li className='text-sm cursor-pointer hover:text-gray-400'>
             +81-123-456-789
           </li>
