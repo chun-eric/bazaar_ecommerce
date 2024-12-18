@@ -5,7 +5,6 @@ import { assets } from "../assets/assets";
 import RelatedProducts from "../components/RelatedProducts";
 import BreadCrumb from "../components/BreadCrumb";
 import renderStars from "../components/RenderStars";
-import Star from "../components/Star";
 
 const Product = () => {
   // extract the id paramter from the URL
@@ -268,7 +267,8 @@ const Product = () => {
                 <div className='flex flex-col items-center justify-between gap-2 pb-5 border-b border-gray-300 sm:flex-row'>
                   <div className='flex items-end justify-between gap-2 '>
                     <span className='text-3xl font-bold text-slate-950'>
-                      {renderStars(Math.round(averageRating))}
+                      {renderStars(Math.round(averageRating))}{" "}
+                      {calculateAverageRating(averageRating)}
                     </span>
                     <span className='ml-2 text-lg text-slate-950'>
                       Based on {productData.reviews?.length || 0} reviews
