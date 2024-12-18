@@ -32,7 +32,7 @@ const BestSeller = () => {
   console.log(bestSellers);
 
   return (
-    <div className='my-[4rem] sm:my-[8rem]'>
+    <div className='my-[4rem] sm:my-[8rem] bg-[#F8F8F8]'>
       {/* TITLE */}
       <div className='py-8 text-3xl text-center'>
         <Title text1='Best Sellers' text2='Collection' />
