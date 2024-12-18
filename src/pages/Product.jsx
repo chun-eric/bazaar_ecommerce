@@ -5,6 +5,7 @@ import { assets } from "../assets/assets";
 import RelatedProducts from "../components/RelatedProducts";
 import BreadCrumb from "../components/BreadCrumb";
 import renderStars from "../components/RenderStars";
+import RenderStars from "../components/RenderStars";
 
 const Product = () => {
   // extract the id paramter from the URL
@@ -27,7 +28,11 @@ const Product = () => {
   // calculate average rating
   const calculateAverageRating = (reviews) => {
     if (!reviews || reviews.length === 0) return 0;
-    const sum = reviews.reduce((acc, review) => acc + review.rating);
+    //  calculate average
+    const sum = reviews.reduce((acc, review) => {
+      console.log("Current rating:", review.rating);
+      return acc + review.rating;
+    }, 0);
     return (sum / reviews.length).toFixed(1);
   };
 
@@ -67,10 +72,20 @@ const Product = () => {
     fetchProductData();
   }, [id, products]);
 
+  // when product data loads calculate average rating
+  useEffect(() => {
+    if (productData?.reviews) {
+      const average = calculateAverageRating(productData.reviews);
+      setAverageRating(average);
+    }
+  }, [productData]);
+
+  console.log(productData);
+
   return productData ? (
     <div className='pt-10 transition-opacity duration-500 ease-in border-t-2 opacity-100'>
       {/* Entire Product Data Container */}
-      <div className='flex flex-col gap-8 sm:flex-1 md-lg:flex-row'>
+      <div className='flex flex-col gap-8 mb-5 sm:flex-1 md-lg:flex-row'>
         {/* Product Images container (both small images and one big image) */}
         <div className='flex flex-col-reverse gap-3 sm:flex-row max-w-[1023px] sm:h-[520px] justitfy-between sm:justify-start w-full md-lg:w-1/2'>
           {/* Small Images */}
@@ -87,7 +102,7 @@ const Product = () => {
             ))}
           </div>
           {/* Large Image */}
-          <div className=' w-full sm:flex-1 lg:w-[450px] h-[520px] flex items-center justify-center '>
+          <div className=' w-full sm:flex-1 lg:w-[450px] h-[520px] flex items-center justify-center  shadow-md '>
             <img
               className='object-cover w-full h-full sm:object-cover '
               src={image}
@@ -108,11 +123,12 @@ const Product = () => {
 
           {/* Stars */}
           <div className='flex items-center gap-1 mt-2'>
+            {/* <img src={assets.star_icon} alt='star' className='w-3 ' />
             <img src={assets.star_icon} alt='star' className='w-3 ' />
             <img src={assets.star_icon} alt='star' className='w-3 ' />
             <img src={assets.star_icon} alt='star' className='w-3 ' />
-            <img src={assets.star_icon} alt='star' className='w-3 ' />
-            <img src={assets.star_dull_icon} alt='star' className='w-3 ' />
+            <img src={assets.star_dull_icon} alt='star' className='w-3 ' /> */}
+            <RenderStars rating={Number(averageRating)} />
             <p className='pl-2'>({productData.reviews.length})</p>
           </div>
 
@@ -135,8 +151,8 @@ const Product = () => {
                 <button
                   onClick={() => setSize(item)}
                   key={index}
-                  className={`px-4 py-2 bg-gray-100 border border-gray-100 hover:border-slate-950 hover:bg-zinc-300 ${
-                    item === size ? "border-[#fd51bb]" : "border-slate-950"
+                  className={`px-4 py-2 bg-white-100 border border-gray-100 hover:border-slate-950 hover:bg-zinc-300 ${
+                    item === size ? "border-[#fcb42f]" : "border-slate-950"
                   }`}
                 >
                   {item}
@@ -237,16 +253,16 @@ const Product = () => {
           {/* Tabs */}
           <button
             onClick={() => setActiveTab("description")}
-            className={`tracking-wide px-5 py-3 text-sm border cursor-pointer rounded-tl-lg rounded-tr-lg  ${
-              activeTab === "description" ? "bg-gray-600 text-white" : ""
+            className={`tracking-wide px-5 py-3 text-sm border cursor-pointer rounded-tl-sm rounded-tr-sm  ${
+              activeTab === "description" ? "bg-zinc-950 text-white" : ""
             }`}
           >
             Description
           </button>
           <button
             onClick={() => setActiveTab("reviews")}
-            className={`tracking-wide px-5 py-3 text-sm border cursor-pointer rounded-tl-lg rounded-tr-lg ${
-              activeTab === "reviews" ? "bg-gray-600 text-white" : ""
+            className={`tracking-wide px-5 py-3 text-sm border cursor-pointer rounded-tl-sm rounded-tr-sm ${
+              activeTab === "reviews" ? "bg-zinc-950 text-white" : ""
             }`}
           >
             Reviews ({productData.reviews.length})
@@ -265,16 +281,16 @@ const Product = () => {
             <div className='flex flex-col gap-6'>
               <div className='flex flex-col justify-between gap-4 pb-4 mb-4 '>
                 <div className='flex flex-col items-center justify-between gap-2 pb-5 border-b border-gray-300 sm:flex-row'>
-                  <div className='flex items-end justify-between gap-2 '>
-                    <span className='text-3xl font-bold text-slate-950'>
-                      {renderStars(Math.round(averageRating))}{" "}
-                      {calculateAverageRating(averageRating)}
+                  <div className='flex flex-row items-center gap-2'>
+                    <span className='flex text-xl font-bold text-slate-950'>
+                      {productData?.reviews
+                        ? calculateAverageRating(productData.reviews)
+                        : "0.0"}
                     </span>
-                    <span className='ml-2 text-lg text-slate-950'>
-                      Based on {productData.reviews?.length || 0} reviews
+                    <span className='ml-2 text-sm text-slate-950'>
+                      Stars based on {productData.reviews?.length || 0} reviews
                     </span>
                   </div>
-
                   <div className='flex items-center gap-2 '>
                     <span className='text-sm text-slate-950'>Sort by:</span>
                     <select
@@ -295,9 +311,12 @@ const Product = () => {
                 {/* Reviews List */}
                 <div className='flex flex-col gap-8'>
                   {getSortedReviews().map((review) => (
-                    <div className='flex flex-col gap-1 pb-6 ' key={review._id}>
-                      <div className='flex flex-col items-start gap-1'>
-                        {renderStars(review.rating)}
+                    <div
+                      className='flex flex-col gap-1 pb-6 mt-2'
+                      key={review._id}
+                    >
+                      <div className='flex flex-col items-start gap-3 '>
+                        <RenderStars key={review._id} rating={review.rating} />
                         <span className='text-xl font-bold text-gray-950'>
                           {review.title}
                         </span>
