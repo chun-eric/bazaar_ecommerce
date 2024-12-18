@@ -11,10 +11,13 @@ const RenderStars = ({ rating, showScore = false }) => {
           const fill = Math.min(1, Math.max(0, normalizedRating - index));
           return <Star key={index} fill={fill} />;
         })}
-
-        {/* {showScore && (
-          <span className='ml-2 text-sm'>({normalizedRating.toFixed(1)})</span>
-        )} */}
+        <div className=''>
+          {showScore && (
+            <span className='ml-2 text-sm'>
+              ({normalizedRating.toFixed(1)})
+            </span>
+          )}
+        </div>
       </div>
     </>
   );
