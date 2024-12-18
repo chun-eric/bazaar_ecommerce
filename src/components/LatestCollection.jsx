@@ -35,7 +35,7 @@ const LatestCollection = () => {
   // console.log("Bottom right image:", latestProducts[7]);
 
   return (
-    <div className='w-full my-16 '>
+    <div className='w-full my-8 md:my-16 '>
       {/* TITLE */}
       <div className='py-8 text-3xl text-center'>
         <Title text1='Latest' text2='Collection' />
@@ -45,7 +45,7 @@ const LatestCollection = () => {
       </div>
 
       {/* RENDER LATEST COLLECTION - ADD PRODUCT ITEM COMPONENT */}
-      <div className='w-full px-1 mx-auto mt-4 mb-20 sm:px-0 '>
+      <div className='w-full px-1 mx-auto mt-4 mb-2 md:mb-20 sm:px-0 '>
         {
           // map over the latest products and render the product item component
           loading ? (
@@ -53,7 +53,7 @@ const LatestCollection = () => {
           ) : error ? (
             <div className='w-full text-center'>Error: {error.message}</div>
           ) : (
-            <div className='max-h-[44rem] h-full min-h-[24rem]'>
+            <div className='h-auto md:max-h-[44rem]'>
               <div className='grid w-full grid-cols-2 gap-2 sm:gap-4  aspect-[16/9]'>
                 {/* Left side - takes up half */}
                 <div className='relative w-full cursor-pointer max-h-[44rem] border border-gray-400'>

@@ -2,10 +2,10 @@ import PropTypes from "prop-types";
 
 const Title = ({ text1, text2 }) => {
   return (
-    <div className='inline-flex items-center gap-2 mb-3'>
-      <p className='text-gray-500 uppercase text-[1.5rem] '>
+    <div className='flex flex-col items-center gap-2 mb-3 md:flex-row'>
+      <p className='text-xl text-gray-500 uppercase sm:text-2xl md:text-3xl'>
         {text1}
-        <span className='pl-2 font-medium text-gray-700 uppercase '>
+        <span className='pl-2 text-xl font-medium text-gray-700 uppercase sm:text-2xl md:text-3xl'>
           {text2}
         </span>
       </p>
