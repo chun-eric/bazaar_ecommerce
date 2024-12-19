@@ -32,11 +32,11 @@ const BestSeller = () => {
   console.log(bestSellers);
 
   return (
-    <div className='my-[4rem] sm:my-[8rem] bg-[#F8F8F8]'>
+    <div className='my-[4rem] sm:my-[8rem] '>
       {/* TITLE */}
-      <div className='py-8 text-3xl text-center'>
+      <div className='pb-20 text-3xl text-center'>
         <Title text1='Best Sellers' text2='Collection' />
-        <p className='w-3/4 m-auto text-sm text-gray-600 sm:text-sm md:text-base'>
+        <p className='w-3/4 m-auto text-sm font-normal text-black sm:text-sm md:text-base'>
           Discover our most-loved styles, handpicked by our community{" "}
         </p>
       </div>

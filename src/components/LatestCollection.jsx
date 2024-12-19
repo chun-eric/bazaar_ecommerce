@@ -35,7 +35,7 @@ const LatestCollection = () => {
   // console.log("Bottom right image:", latestProducts[7]);
 
   return (
-    <div className='w-full my-8 md:my-16 '>
+    <div className='w-full py-12 my-8 md:py-20 '>
       {/* TITLE */}
       <div className='py-8 text-3xl text-center'>
         <Title text1='Latest' text2='Collection' />
@@ -45,7 +45,7 @@ const LatestCollection = () => {
       </div>
 
       {/* RENDER LATEST COLLECTION - ADD PRODUCT ITEM COMPONENT */}
-      <div className='w-full px-1 mx-auto mt-4 mb-2 md:mb-20 sm:px-0 '>
+      <div className='w-full px-1 mx-auto mt-4 mb-8 sm:mb-12 md:mb-20 sm:px-0 '>
         {
           // map over the latest products and render the product item component
           loading ? (

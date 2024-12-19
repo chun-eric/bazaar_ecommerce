@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className='flex flex-col sm:grid grid-cols-[1fr,1fr,1fr]  gap-14 sm:gap-16 my-10 mt-40 text-sm border-t py-12 bg-[#212121] text-white'>
+    <div className='flex flex-col sm:grid grid-cols-[1fr,1fr,1fr]  gap-14 sm:gap-16 my-8  text-sm  py-12 bg-[#212121] text-white'>
       <div className='flex flex-col '>
         <img src={assets.footer_logo} alt='logo' className='w-24 mb-5' />
         <div className='flex gap-2 pl-2 '>

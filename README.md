@@ -169,7 +169,12 @@ Day 11
   3. Add box shadow to the main large image 
   4. Change main image of new colletions. **
   5. Add box shadow and highlight -- done
-  6. checkout page icons for payment
+
+
+Day 12. 
+  1. checkout page icons for payment
+  2. Responsive container to go full screen
+  3. In the cart, when clicking on image should be able to go the productDetails page
 - Testing
 - Accessiblity issues testing
 - Update all Copy
