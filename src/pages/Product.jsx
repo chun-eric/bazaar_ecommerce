@@ -4,7 +4,6 @@ import { ShopContext } from "../context/shopContext";
 import { assets } from "../assets/assets";
 import RelatedProducts from "../components/RelatedProducts";
 import BreadCrumb from "../components/BreadCrumb";
-import renderStars from "../components/RenderStars";
 import RenderStars from "../components/RenderStars";
 
 const Product = () => {
@@ -152,7 +151,9 @@ const Product = () => {
                   onClick={() => setSize(item)}
                   key={index}
                   className={`px-4 py-2 bg-white-100 border border-gray-100 hover:border-slate-950 hover:bg-zinc-300 ${
-                    item === size ? "border-[#fcb42f]" : "border-slate-950"
+                    item === size
+                      ? "border border-orange-400"
+                      : "border-slate-950"
                   }`}
                 >
                   {item}
