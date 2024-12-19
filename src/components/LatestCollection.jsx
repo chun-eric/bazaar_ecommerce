@@ -59,7 +59,7 @@ const LatestCollection = () => {
                 <div className='relative w-full cursor-pointer max-h-[44rem] border border-gray-400'>
                   {latestProducts[0] && (
                     <Link to={`/collection`} clasName='block h-full'>
-                      <div className='relative h-full overflow-hidden transition-all duration-200 ease-in-out hover:shadow-lg'>
+                      <div className='relative h-full overflow-hidden transition-all duration-200 ease-in-out '>
                         <div className='absolute inset-0 flex items-center justify-center'>
                           <img
                             src={
@@ -92,7 +92,7 @@ const LatestCollection = () => {
                       >
                         <div
                           key={index}
-                          className='relative w-full h-full overflow-hidden transition-all duration-200 ease-in-out border border-gray-400 cursor-pointer hover:shadow-lg'
+                          className='relative w-full h-full overflow-hidden transition-all duration-200 ease-in-out border border-gray-400 cursor-pointer '
                         >
                           <div className='absolute inset-0 flex items-center justify-center'>
                             <img
@@ -117,7 +117,7 @@ const LatestCollection = () => {
                         key={products._id}
                         to={`/product/${latestProducts[5]._id}`}
                       >
-                        <div className='relative h-full overflow-hidden transition-all duration-200 ease-in-out cursor-pointer hover:shadow-lg'>
+                        <div className='relative h-full overflow-hidden transition-all duration-200 ease-in-out cursor-pointer '>
                           <div className='absolute inset-0 flex items-center justify-center'>
                             <img
                               src={latestProducts[5].image}

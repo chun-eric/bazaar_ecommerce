@@ -175,6 +175,9 @@ Day 12.
   1. checkout page icons for payment
   2. Responsive container to go full screen
   3. In the cart, when clicking on image should be able to go the productDetails page
+  4. Issue with the hero image being cropped below 1600px screen size
+
+
 - Testing
 - Accessiblity issues testing
 - Update all Copy

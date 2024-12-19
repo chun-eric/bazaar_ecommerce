@@ -45,7 +45,7 @@ const App = () => {
       </div>
 
       {/* Footer full width with container content */}
-      <div className='w-full bg-[#212121]'>
+      <div className='w-full bg-[#111827]'>
         <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
           <Footer />
         </div>

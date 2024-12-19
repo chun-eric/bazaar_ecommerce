@@ -2,14 +2,14 @@ import { assets } from "../assets/assets";
 
 const Policy = () => {
   return (
-    <div className='flex flex-col justify-around gap-12 py-20 text-xs text-center text-gray-700 sm:flex-row sm:gap-5 sm:text-sm md:text-base'>
+    <div className='flex flex-col justify-around gap-12 my-10 text-xs text-center text-gray-700 py-28 sm:flex-row sm:gap-5 sm:text-sm md:text-base'>
       <div className=''>
         <img
           src={assets.exchange_icon}
           alt='exchange_icon'
           className='w-12 m-auto mb-5'
         />
-        <p className='text-lg font-semibold text-slate-950'>
+        <p className='text-lg font-semibold text-slate-850'>
           Easy Exchange Policy
         </p>
         <p className='text-[0.9rem] text-gray-600'>
@@ -22,7 +22,7 @@ const Policy = () => {
           alt='return icon'
           className='w-12 m-auto mb-5'
         />
-        <p className='text-lg font-semibold text-slate-950'>
+        <p className='text-lg font-semibold text-slate-850'>
           30 Days Return Policy
         </p>
         <p className='text-gray-600 text-[0.9rem]'>
@@ -35,7 +35,7 @@ const Policy = () => {
           alt='customer support icon'
           className='w-12 m-auto mb-5'
         />
-        <p className='text-lg font-semibold text-slate-950'>
+        <p className='text-lg font-semibold text-slate-850'>
           Awesome Customer Support
         </p>
         <p className='text-gray-600 text-[0.9rem]'>

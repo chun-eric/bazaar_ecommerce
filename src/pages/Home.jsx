@@ -8,9 +8,7 @@ const Home = () => {
   return (
     <div className='flex flex-col -mx-4 sm:-mx-[5vw] md:-mx-[7vw] lg:-mx-[9vw]'>
       <div className='w-full bg-[#FFF1F3]'>
-        <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
-          <Hero />
-        </div>
+        <Hero />
       </div>
 
       <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
@@ -23,12 +21,11 @@ const Home = () => {
           <BestSeller />
         </div>
       </div>
-
-      <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
-        <Policy />
-      </div>
       <div className='w-full'>
         <Subscribe />
+      </div>
+      <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
+        <Policy />
       </div>
     </div>
   );

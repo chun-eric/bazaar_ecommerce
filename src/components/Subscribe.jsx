@@ -1,8 +1,8 @@
 const Subscribe = () => {
   return (
-    <div className='w-full bg-[#FED2D1] pb-2'>
+    <div className='w-full bg-[#FCE7F3] pb-2'>
       <div className=''>
-        <div className='text-center bg-[#FED2D1] py-16'>
+        <div className='text-center bg-[#FCE7F3] py-16'>
           <p className='mt-2 text-xl sm:text-2xl font-medium text-slate-950 font-[outfit]'>
             Subscribe & get 15% off
           </p>
