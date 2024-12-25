@@ -1,14 +1,13 @@
 import { useContext } from "react";
 import { ShopContext } from "../context/shopContext";
-import Title from "./Title";
 
 const CartTotal = () => {
   const { currency, delivery_fee, getCartAmount } = useContext(ShopContext);
 
   return (
     <div className='w-full'>
-      <div className='text-2xl'>
-        <Title text1={"Total"} text2={"Amount"} />
+      <div className='mb-2'>
+        <h1 className='pb-4 text-lg font-bold'>Order Summary</h1>
       </div>
       <div className='flex flex-col gap-2 mt-2 text-sm'>
         <div className='flex justify-between'>

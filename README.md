@@ -166,17 +166,23 @@ Day 11
 - Finish Reviews system
   1. calculate reviews average
   2. add the stars fill for reviews in the reviews section and the product listing section. I was making a mistake when rendering the stars. I already had access to each individual review so all i needed to do was just access it. I was trying to get access to the productData array instead which is incorrect.
-  3. Add box shadow to the main large image 
-  4. Change main image of new colletions. **
+  3. Add box shadow to the main large image
+  4. Change main image of new colletions. \*\*
   5. Add box shadow and highlight -- done
 
+Day 12.
 
-Day 12. 
-  1. checkout page icons for payment
-  2. Responsive container to go full screen
-  3. In the cart, when clicking on image should be able to go the productDetails page
-  4. Issue with the hero image being cropped below 1600px screen size
+1. Responsive container to go full screen
+2. In the cart, when clicking on image should be able to go the productDetails page
+3. Issue with the hero image being cropped below 1600px screen size
+4. fixed select size border orange not showing up
 
+Day 13.
+
+1.  checkout page icons for payment
+2.  In checkout page link to product Details page - Done
+3.  cart page - basic layout 
+4.  
 
 - Testing
 - Accessiblity issues testing

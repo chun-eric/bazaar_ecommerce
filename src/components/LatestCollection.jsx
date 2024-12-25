@@ -56,7 +56,7 @@ const LatestCollection = () => {
             <div className='h-auto md:max-h-[44rem]'>
               <div className='grid w-full grid-cols-2 gap-2 sm:gap-4  aspect-[16/9]'>
                 {/* Left side - takes up half */}
-                <div className='relative w-full cursor-pointer max-h-[44rem] border border-gray-400'>
+                <div className='relative w-full cursor-pointer max-h-[44rem] border border-slate-600'>
                   {latestProducts[0] && (
                     <Link to={`/collection`} clasName='block h-full'>
                       <div className='relative h-full overflow-hidden transition-all duration-200 ease-in-out '>
