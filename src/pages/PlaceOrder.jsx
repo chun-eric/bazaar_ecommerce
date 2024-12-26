@@ -2,6 +2,7 @@ import Title from "../components/Title";
 import { useContext, useState } from "react";
 import { ShopContext } from "../context/shopContext";
 import { assets } from "../assets/assets";
+import PaymentForm from "../components/PaymentForm";
 
 const PlaceOrder = () => {
   const { currency, getCartAmount, delivery_fee, navigate } =
@@ -24,146 +25,159 @@ const PlaceOrder = () => {
   };
 
   return (
-    <div className='flex flex-col items-center  sm:justify-start gap-5 sm:gap-14 pt-5 lg:flex-row sm:pt-14 min-h-[100vh] border-t'>
-      {/* LEFT - DELIVERY INFORMATION*/}
-      <div className='flex flex-col items-center  gap-4   sm:max-w-[480px]  xs:px-15 sm:px-5 bg-gray-100 rounded'>
-        {/* TITLE */}
-        <div className='py-4 my-3 text-xl sm:text-2xl'>
-          <Title text1={"Delivery"} text2={"Information"} />
-        </div>
-
-        {/* FORM */}
-        <div className='flex gap-3 '>
-          <input
-            type='text'
-            className='w-full px-4 py-2 text-base border border-gray-400 rounded '
-            placeholder='First Name'
-          />
-          <input
-            type='text'
-            className='w-full px-4 py-2 text-base border border-gray-400 rounded'
-            placeholder='Last Name'
-          />
-        </div>
-        <input
-          type='email'
-          className='w-full px-4 py-2 text-base border border-gray-400 rounded'
-          placeholder='Email '
-        />
-        <input
-          type='text'
-          className='w-full px-4 py-2 text-base border border-gray-400 rounded'
-          placeholder='Street'
-        />
-        <input
-          type='text'
-          className='w-full px-4 py-2 text-base border border-gray-400 rounded'
-          placeholder='Address'
-        />
-        <div className='flex gap-3'>
-          <input
-            type='text'
-            className='w-full px-4 py-2 text-base border border-gray-400 rounded'
-            placeholder='City'
-          />
-          <input
-            type='text'
-            className='w-full px-4 py-2 text-base border border-gray-400 rounded'
-            placeholder='State'
-          />
-        </div>
-        <div className='flex gap-3'>
-          <input
-            type='number'
-            className='w-full px-4 py-2 text-base border border-gray-400 rounded'
-            placeholder='Postal Code'
-          />
-          <input
-            type='text'
-            className='w-full px-4 py-2 text-base border border-gray-400 rounded'
-            placeholder='Country'
-          />
-        </div>
-        <input
-          type='number'
-          className='w-full px-4 py-2 text-base border border-gray-400 rounded'
-          placeholder='Phone'
-        />
-      </div>
-
-      {/* MIDDLE - LINE */}
-      <hr className='md:hidden w-[100%]' />
-
-      {/* RIGHT - TOTAL AMOUNT AND PAYMENT METHOD*/}
-      <div className='mt-4 '>
-        <div className='flex flex-col w-[90%] gap-4 sm:max-w-[480px] py-4'>
-          <div className='w-full'>
-            <div className='text-2xl'>
-              <Title text1='Total' text2='Amount' />
+    <div className=''>
+      <div className='min-h-[100vh] w-full'>
+        <div className='flex flex-col items-start gap-2 pt-5 mb-40 border-t sm:justify-around sm:gap-2 lg:flex-row sm:pt-14 align-start '>
+          {/* LEFT - DELIVERY INFORMATION*/}
+          <div className='flex flex-col items-center  gap-4 sm:max-w-[580px]  xs:px-15 sm:px-5  rounded h-auto pb-6'>
+            {/* TITLE */}
+            <div className='py-4 my-3 text-xl sm:text-2xl'>
+              <Title text1={"Delivery"} text2={"Information"} />
             </div>
-            <div className='flex flex-col gap-2 mt-4 text-sm'>
-              <div className='flex justify-between'>
-                <p>Subtotal</p>
-                <p className=''>
-                  {" "}
-                  {currency} {getCartAmount()}.00
-                </p>
-              </div>
-              <div className='flex justify-between'>
-                <p>Shipping Fee</p>
-                <p className=''>
-                  {" "}
-                  {currency} {getCartAmount() === 0 ? 0 : delivery_fee}.00
-                </p>
-              </div>
-              <hr />
-              <div className='flex justify-between'>
-                <b>Total</b>
-                <p className='font-bold'>
-                  {" "}
-                  {currency}{" "}
-                  {getCartAmount() === 0 ? 0 : getCartAmount() + delivery_fee}
-                  .00
-                </p>
-              </div>
+
+            {/* FORM */}
+            <div className='flex h-full gap-3'>
+              <input
+                type='text'
+                className='w-full px-4 py-4 text-base border border-gray-300 rounded-sm '
+                placeholder='First Name'
+              />
+              <input
+                type='text'
+                className='w-full px-4 py-4 text-base border border-gray-300 rounded-sm'
+                placeholder='Last Name'
+              />
             </div>
+            <input
+              type='email'
+              className='w-full px-4 py-4 text-base border border-gray-300 rounded-sm'
+              placeholder='Email '
+            />
+            <input
+              type='text'
+              className='w-full px-4 py-4 text-base border border-gray-300 rounded-sm'
+              placeholder='Street'
+            />
+            <input
+              type='text'
+              className='w-full px-4 py-4 text-base border border-gray-300 rounded-sm'
+              placeholder='Address'
+            />
+            <div className='flex gap-3'>
+              <input
+                type='text'
+                className='w-full px-4 py-4 text-base border border-gray-300 rounded-sm'
+                placeholder='City'
+              />
+              <input
+                type='text'
+                className='w-full px-4 py-4 text-base border border-gray-300 rounded-sm'
+                placeholder='State'
+              />
+            </div>
+            <div className='flex gap-3 text-sm'>
+              <input
+                type='number'
+                className='w-full px-4 py-4 text-base border border-gray-300 rounded-sm'
+                placeholder='Postal Code'
+              />
+              <input
+                type='text'
+                className='w-full px-4 py-4 text-base border border-gray-300 rounded-sm'
+                placeholder='Country'
+              />
+            </div>
+            <input
+              type='number'
+              className='w-full px-4 py-4 text-base border border-gray-300 rounded-sm'
+              placeholder='Phone'
+            />
+            <PaymentForm />
           </div>
-          <div className='mt-12'>
-            <Title text1={"Payment"} text2={"Method"} />
-            {/* PAYMENT METHOD*/}
-            <div className='flex items-center py-2 cursor-pointer'>
-              <ul className='flex items-center gap-2'>
-                {paymentMethods.map((method, index) => (
-                  <li
-                    key={method.id}
-                    className={`p-3 rounded cursor-pointer  ${
-                      activePayment === index
-                        ? "  border-[#fd499a] bg-transparent border-2 "
-                        : "border"
-                    }
+
+          {/* MIDDLE - LINE */}
+          <hr className='md:hidden w-[100%]' />
+
+          {/* RIGHT - TOTAL AMOUNT AND PAYMENT METHOD*/}
+          <div className='mt-4 sm:max-w-[580px]'>
+            <div className='flex flex-col w-[90%] gap-4 sm:max-w-[480px] py-4'>
+              <div className='w-full'>
+                <div className='text-2xl'>
+                  <div className='mb-2'>
+                    <h1 className='pb-4 text-lg font-bold uppercase'>
+                      Order Summary
+                    </h1>
+                  </div>
+                </div>
+                <div className='flex flex-col gap-2 mt-4 text-sm'>
+                  <div className='flex justify-between'>
+                    <p>Subtotal</p>
+                    <p className=''>
+                      {" "}
+                      {currency} {getCartAmount()}.00
+                    </p>
+                  </div>
+                  <div className='flex justify-between'>
+                    <p>Shipping Fee</p>
+                    <p className=''>
+                      {" "}
+                      {currency} {getCartAmount() === 0 ? 0 : delivery_fee}.00
+                    </p>
+                  </div>
+                  <hr />
+                  <div className='flex justify-between'>
+                    <b>Total</b>
+                    <p className='font-bold'>
+                      {" "}
+                      {currency}{" "}
+                      {getCartAmount() === 0
+                        ? 0
+                        : getCartAmount() + delivery_fee}
+                      .00
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className='mt-12'>
+                <h1 className='pb-2 text-lg font-bold uppercase'>Payment</h1>
+                {/* PAYMENT METHOD*/}
+
+                <div className='flex items-center py-2 cursor-pointer'>
+                  <ul className='flex items-center gap-2'>
+                    {paymentMethods.map((method, index) => (
+                      <li
+                        key={method.id}
+                        className={`p-3 rounded cursor-pointer  ${
+                          activePayment === index
+                            ? "  border-[#fd499a] bg-transparent border-2 "
+                            : "border"
+                        }
                   `}
-                  >
-                    <a
-                      onClick={(e) => handlePaymentMethod(e, index)}
-                      className='flex items-center justify-center w-full h-full '
-                      href='#'
-                    >
-                      <img
-                        className='h-5 mx-4'
-                        src={method.img}
-                        alt={method.alt}
-                      />
-                    </a>
-                  </li>
-                ))}
-              </ul>
+                      >
+                        <a
+                          onClick={(e) => handlePaymentMethod(e, index)}
+                          className='flex items-center justify-center w-full h-full '
+                          href='#'
+                        >
+                          <img
+                            className='h-5 mx-4'
+                            src={method.img}
+                            alt={method.alt}
+                          />
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <button
+                  onClick={() => navigate("/orders")}
+                  className='w-full px-3 py-4 mt-2 text-sm text-white uppercase bg-black sm:text-base'
+                >
+                  Pay Now
+                </button>
+              </div>
             </div>
-            <button
-              onClick={() => navigate("/orders")}
-              className='w-full px-3 py-4 mt-2 text-sm text-white uppercase bg-black sm:text-base'
-            >
-              Proceed to Checkout
-            </button>
           </div>
         </div>
       </div>

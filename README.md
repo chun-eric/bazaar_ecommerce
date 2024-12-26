@@ -179,10 +179,13 @@ Day 12.
 
 Day 13.
 
-1.  checkout page icons for payment
-2.  In checkout page link to product Details page - Done
-3.  cart page - basic layout 
-4.  
+1.  In checkout page link to product Details page - Done
+2.  cart page - basic layout 
+  
+
+Day 14.
+1. Fixed Footer design and responsiveness - Done
+2.  checkout page icons for payment
 
 - Testing
 - Accessiblity issues testing

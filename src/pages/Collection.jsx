@@ -87,7 +87,7 @@ const Collection = () => {
   }, [applyFilter]);
 
   return (
-    <div className='flex flex-col gap-2 pt-10 border-t sm:flex-row sm:gap-10'>
+    <div className='flex flex-col gap-2 pt-10 mb-20 border-t sm:flex-row sm:gap-10'>
       {/* Filter Feature - Left Side */}
       <div className='min-w-60'>
         <p
