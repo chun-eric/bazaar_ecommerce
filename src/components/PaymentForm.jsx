@@ -23,12 +23,14 @@ const PaymentForm = () => {
       </div>
 
       {/* Payment Methods */}
-      <div className='w-full overflow-hidden border rounded bg-gray-50'>
+      <div className='w-full overflow-hidden border bg-gray-50'>
         {/* Credit options */}
         <div className='w-full '>
           <div
             className={`p-4  ${
-              paymentMethod === "credit-card" ? "bg-[#F3F7F9] border" : ""
+              paymentMethod === "credit-card"
+                ? "bg-[#F3F7F9] border border-slate-950"
+                : "bg-white"
             } `}
           >
             <label className='flex items-center justify-between cursor-pointer'>
@@ -44,7 +46,7 @@ const PaymentForm = () => {
                 <span className=''>Credit Card</span>
               </div>
 
-              <div className='flex items-center gap-2'>
+              <div className='flex items-center gap-2 '>
                 <img
                   src={Visa}
                   alt='Visa'
@@ -69,8 +71,8 @@ const PaymentForm = () => {
 
           {/* Credit card form */}
           {paymentMethod === "credit-card" && (
-            <div className='pl-1 mt-4 space-y-4 '>
-              <div>
+            <div className='px-3 mt-4 space-y-4 '>
+              <div className='relative flex '>
                 <input
                   type='text'
                   placeholder='Card number'
@@ -82,7 +84,7 @@ const PaymentForm = () => {
                   viewBox='0 0 24 24'
                   strokeWidth={1.5}
                   stroke='currentColor'
-                  className='w-4 h-4 size-6'
+                  className='absolute w-4 h-4 transform -translate-y-1/2 size-6 right-2 top-1/2'
                 >
                   <path
                     strokeLinecap='round'
@@ -97,10 +99,10 @@ const PaymentForm = () => {
                   className='relative px-3 py-4 text-sm border rounded focus:outline-none focus:ring-black placeholder-[#929292]'
                   placeholder='Expiration date (MM/YY)'
                 />
-                <div className='flex '>
+                <div className='relative flex w-full'>
                   <input
                     type='text'
-                    className='px-3 py-4 text-sm border rounded focus:outline-none focus:ring-black placeholder-[#929292]'
+                    className='px-3 py-4 text-sm border rounded focus:outline-none focus:ring-black placeholder-[#929292] w-full'
                     placeholder='Security code'
                   />
                   <svg
@@ -109,7 +111,8 @@ const PaymentForm = () => {
                     viewBox='0 0 24 24'
                     strokeWidth={1.5}
                     stroke='currentColor'
-                    className='absolute w-4 h-4 size-6 right-1 bottom-1'
+                    onChange={""}
+                    className='absolute w-4 h-4 text-gray-700 transform -translate-y-1/2 cursor-pointer size-6 right-2 top-1/2'
                   >
                     <path
                       strokeLinecap='round'
@@ -128,6 +131,7 @@ const PaymentForm = () => {
                 <input
                   type='checkbox'
                   checked={useShippingAddress}
+                  onChange={(e) => setUseShippingAddress(e.target.checked)}
                   className='w-4 h-4 pl-2 text-blue-600 border-gray-300 rounded focus:ring-blue-500'
                 />
                 <span className='text-sm text-slate-700'>
@@ -142,8 +146,10 @@ const PaymentForm = () => {
         <div className='w-full duration-200 ease-in transitiona-all'>
           <div
             className={`p-4 ${
-              paymentMethod === "paypal" ? "bg-[#F3F7F9] border" : ""
-            } `}
+              paymentMethod === "paypal"
+                ? "bg-[#F3F7F9] border border-slate-950"
+                : "bg-white"
+            }  `}
           >
             <label className='flex items-center justify-between cursor-pointer'>
               <div className='flex items-center gap-3'>
@@ -200,7 +206,19 @@ const PaymentForm = () => {
       {/* Remeber me */}
       <div className='mt-6'>
         <h2 className='text-xl font-semibold'>Remember me</h2>
-        <div className='w-full overflow-hidden bg-gray-50'></div>
+        <div className='w-full mt-2 space-y-4 overflow-hidden'>
+          <label className='flex items-center gap-2'>
+            <input
+              type='checkbox'
+              className=''
+              checked={saveInformation}
+              onChange={(e) => setSaveInformation(e.target.checked)}
+            />
+            <span className='text-sm text-slate-600'>
+              Save my information for faster checkout
+            </span>
+          </label>
+        </div>
       </div>
     </div>
   );

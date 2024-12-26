@@ -27,16 +27,16 @@ const PlaceOrder = () => {
   return (
     <div className=''>
       <div className='min-h-[100vh] w-full'>
-        <div className='flex flex-col items-start gap-2 pt-5 mb-40 border-t sm:justify-around sm:gap-2 lg:flex-row sm:pt-14 align-start '>
+        <div className='flex flex-col items-start w-full gap-2 pt-5 mb-40 border-t sm:justify-around sm:gap-2 lg:flex-row sm:pt-14'>
           {/* LEFT - DELIVERY INFORMATION*/}
-          <div className='flex flex-col items-center  gap-4 sm:max-w-[580px]  xs:px-15 sm:px-5  rounded h-auto pb-6'>
+          <div className='flex flex-col items-center  gap-4 lg:max-w-[580px]  xs:px-15 sm:px-5  rounded h-auto pb-6 w-full'>
             {/* TITLE */}
             <div className='py-4 my-3 text-xl sm:text-2xl'>
               <Title text1={"Delivery"} text2={"Information"} />
             </div>
 
             {/* FORM */}
-            <div className='flex h-full gap-3'>
+            <div className='flex w-full h-full gap-3'>
               <input
                 type='text'
                 className='w-full px-4 py-4 text-base border border-gray-300 rounded-sm '
@@ -63,7 +63,7 @@ const PlaceOrder = () => {
               className='w-full px-4 py-4 text-base border border-gray-300 rounded-sm'
               placeholder='Address'
             />
-            <div className='flex gap-3'>
+            <div className='flex w-full gap-3'>
               <input
                 type='text'
                 className='w-full px-4 py-4 text-base border border-gray-300 rounded-sm'
@@ -75,7 +75,7 @@ const PlaceOrder = () => {
                 placeholder='State'
               />
             </div>
-            <div className='flex gap-3 text-sm'>
+            <div className='flex w-full gap-3 text-sm'>
               <input
                 type='number'
                 className='w-full px-4 py-4 text-base border border-gray-300 rounded-sm'
@@ -92,15 +92,14 @@ const PlaceOrder = () => {
               className='w-full px-4 py-4 text-base border border-gray-300 rounded-sm'
               placeholder='Phone'
             />
-            <PaymentForm />
           </div>
 
           {/* MIDDLE - LINE */}
-          <hr className='md:hidden w-[100%]' />
+          <hr className='w-full md:hidden' />
 
           {/* RIGHT - TOTAL AMOUNT AND PAYMENT METHOD*/}
-          <div className='mt-4 sm:max-w-[580px]'>
-            <div className='flex flex-col w-[90%] gap-4 sm:max-w-[480px] py-4'>
+          <div className='mt-4 lg:max-w-[580px] w-full'>
+            <div className='flex flex-col gap-4 lg:max-w-[580px] py-4 w-full'>
               <div className='w-full'>
                 <div className='text-2xl'>
                   <div className='mb-2'>
@@ -109,7 +108,7 @@ const PlaceOrder = () => {
                     </h1>
                   </div>
                 </div>
-                <div className='flex flex-col gap-2 mt-4 text-sm'>
+                <div className='flex flex-col w-full gap-2 mt-4 text-sm'>
                   <div className='flex justify-between'>
                     <p>Subtotal</p>
                     <p className=''>
@@ -139,37 +138,8 @@ const PlaceOrder = () => {
                 </div>
               </div>
 
-              <div className='mt-12'>
-                <h1 className='pb-2 text-lg font-bold uppercase'>Payment</h1>
-                {/* PAYMENT METHOD*/}
-
-                <div className='flex items-center py-2 cursor-pointer'>
-                  <ul className='flex items-center gap-2'>
-                    {paymentMethods.map((method, index) => (
-                      <li
-                        key={method.id}
-                        className={`p-3 rounded cursor-pointer  ${
-                          activePayment === index
-                            ? "  border-[#fd499a] bg-transparent border-2 "
-                            : "border"
-                        }
-                  `}
-                      >
-                        <a
-                          onClick={(e) => handlePaymentMethod(e, index)}
-                          className='flex items-center justify-center w-full h-full '
-                          href='#'
-                        >
-                          <img
-                            className='h-5 mx-4'
-                            src={method.img}
-                            alt={method.alt}
-                          />
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+              <div className='mt-8'>
+                <PaymentForm />
                 <button
                   onClick={() => navigate("/orders")}
                   className='w-full px-3 py-4 mt-2 text-sm text-white uppercase bg-black sm:text-base'
