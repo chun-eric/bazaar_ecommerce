@@ -19,7 +19,7 @@ const Login = () => {
     <form
       onSubmit={onSubmitHandler}
       action=''
-      className='flex flex-col items-center w-[90%] sm:max-w-lg m-auto mt-14 gap-4 text-gray-800'
+      className='flex flex-col items-center w-[90%] sm:max-w-lg m-auto mt-14 gap-4 text-gray-800 mb-36'
     >
       {/* TITLE */}
       <div className='inline-flex items-center gap-2 mt-10 mb-2'>

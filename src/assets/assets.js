@@ -5,7 +5,12 @@ import p_img2_3 from "./p_img2_3.png";
 import p_img2_4 from "./p_img2_4.png";
 import p_img3 from "./p_img3.png";
 import p_img4 from "./p_img4.png";
-import p_img5 from "./p_img5.png";
+import p_img5_1 from "./p_img5_1.png";
+import p_img5_2 from "./p_img5_2.png";
+import p_img5_3 from "./p_img5_3.png";
+import p_img5_4 from "./p_img5_4.png";
+import p_img5_5 from "./p_img5_5.png";
+import p_img5_6 from "./p_img5_6.png";
 import p_img6 from "./p_img6.png";
 import p_img7 from "./p_img7.png";
 import p_img8 from "./p_img8.png";
@@ -253,7 +258,7 @@ export const products = [
     description:
       "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
     price: 130,
-    image: [p_img5],
+    image: [p_img5_1, p_img5_2, p_img5_3, p_img5_4, p_img5_5, p_img5_6],
     category: "Women",
     subCategory: "Topwear",
     sizes: ["M", "L", "XL"],

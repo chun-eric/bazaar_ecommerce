@@ -63,7 +63,7 @@ const LatestCollection = () => {
                         <div className='absolute inset-0 flex items-center justify-center'>
                           <img
                             src={
-                              latestProducts[0].image ||
+                              latestProducts[0].image[0] ||
                               "https://api/placeholder/500/500"
                             }
                             alt={latestProducts[0].name}
