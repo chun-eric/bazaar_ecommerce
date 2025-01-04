@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import { products } from "../assets/assets";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
@@ -14,31 +14,39 @@ const ShopContextProvider = (props) => {
   const delivery_fee = 10;
   const [search, setSearch] = useState(""); // state for search query
   const [showSearch, setShowSearch] = useState(false); // show/hide search bar. Initially hides it.
-  const [cartItems, setCartItems] = useState({}); // state for cart items
+  const [cartItems, setCartItems] = useState(() => {
+    // passing an anonymous function means lazy initialization. only runs on initial render.
+    const savedCart = localStorage.getItem("cartItems");
+    return savedCart ? JSON.parse(savedCart) : {};
+  }); // state for cart items
+
   const navigate = useNavigate();
+
+  // Save to localStorage when cartItems changes. Only runs when cartItems changs.
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
 
   // get add to cart function v2 refactoring
   const addToCart = async (itemId, size) => {
     // if size is not selected show toast error and return
     if (!size) {
       toast.error("Please select a Product Size");
+      return;
     }
 
     // Deep clone of cartItems
     let newCartItems = structuredClone(cartItems);
-
     // if the item is not in the cart, add it in a new object
     // if the item is in the cart add keeps its value truthy
     newCartItems[itemId] = newCartItems[itemId] || {};
-
     // set the new quantity to the existing product item size quantity + 1
     // if quantity is not set, set it to 0
     newCartItems[itemId][size] = (newCartItems[itemId][size] || 0) + 1;
-
     setCartItems(newCartItems);
   };
 
-  // get cart count function v2 refactoring
+  // get cart count
   const getCartCount = () => {
     // Object.entries returns an array of key value pairs of our cartItems
     return Object.entries(cartItems).reduce(
@@ -61,30 +69,37 @@ const ShopContextProvider = (props) => {
 
   // update cart quantity function v2
   const updateCartQuantity = async (itemId, size, quantity) => {
-    setCartItems((prevCart) => ({
-      // copy all existing cart items
-      ...prevCart,
-      // update this specific product
-      [itemId]: {
-        // spreads all existing sizes for this product
-        ...prevCart[itemId],
-        // update specific size with new quantity
-        [size]: quantity,
-      },
-    }));
+    setCartItems((prevCart) => {
+      const newCart = {
+        ...prevCart, // copy all existing cart items
+        // update this specific product
+        [itemId]: {
+          ...prevCart[itemId], // spreads all existing sizes for this product
+          [size]: quantity, // update specific size with new quantity
+        },
+      };
+
+      // Cleanup: Remove empty entries
+      // if the quantity is less than or equal to 0 and the product is in the cart
+      if (quantity <= 0 && newCart[itemId]) {
+        // remove the product
+        delete newCart[itemId][size];
+
+        // Remove product if no sizes
+        if (Object.keys(newCart[itemId]).length === 0) {
+          delete newCart[itemId];
+        }
+      }
+
+      return newCart;
+    });
   };
 
-  // get the cart amount/total price v2
+  // get the cart amount/total price
   const getCartAmount = () => {
-    // Object.entries returns an array of key value pairs of our cartItems
-    // iterate over each product in the cart with reduce method
-    // this will destructure the product id and sizeQuantities
     return Object.entries(cartItems).reduce(
       (total, [productId, sizeQuantities]) => {
-        // find the current product so we can get access to its price as well
         const product = products.find((product) => product._id === productId);
-
-        // Second reduce: adding up sizeQuantites values
         const itemTotal = Object.values(sizeQuantities).reduce(
           (sum, quantity) => {
             return quantity > 0 ? sum + product.price * quantity : sum;
@@ -95,6 +110,10 @@ const ShopContextProvider = (props) => {
       },
       0
     );
+  };
+
+  const clearCart = () => {
+    setCartItems({});
   };
 
   // store shared data  the products object. We can access any values via context API
@@ -112,6 +131,7 @@ const ShopContextProvider = (props) => {
     updateCartQuantity,
     getCartAmount,
     navigate,
+    clearCart,
   };
 
   return (
