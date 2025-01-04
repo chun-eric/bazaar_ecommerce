@@ -29,7 +29,7 @@ const PlaceOrder = () => {
       <div className='min-h-[100vh] w-full'>
         <div className='flex flex-col items-start w-full gap-2 pt-5 mb-40 border-t sm:justify-around sm:gap-2 lg:flex-row sm:pt-14'>
           {/* LEFT - DELIVERY INFORMATION*/}
-          <div className='flex flex-col items-center  gap-4 lg:max-w-[580px]  xs:px-15 sm:px-5  rounded h-auto pb-6 w-full'>
+          <div className='flex flex-col items-center  gap-4 lg:max-w-[580px]  xs:px-4 sm:px-5  rounded h-auto pb-6 w-full'>
             {/* TITLE */}
             <div className='py-4 my-3 text-xl sm:text-2xl'>
               <Title text1={"Delivery"} text2={"Information"} />
@@ -98,7 +98,7 @@ const PlaceOrder = () => {
           <hr className='w-full md:hidden' />
 
           {/* RIGHT - TOTAL AMOUNT AND PAYMENT METHOD*/}
-          <div className='mt-4 lg:max-w-[580px] w-full'>
+          <div className='mt-4 lg:max-w-[580px] w-full xs:px-4 '>
             <div className='flex flex-col gap-4 lg:max-w-[580px] py-4 w-full'>
               <div className='w-full'>
                 <div className='text-2xl'>

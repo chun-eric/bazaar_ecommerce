@@ -27,14 +27,13 @@ const ShopContextProvider = (props) => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);
 
-  // get add to cart function v2 refactoring
+  // Function to add one item with specific size to cart
   const addToCart = async (itemId, size) => {
     // if size is not selected show toast error and return
     if (!size) {
       toast.error("Please select a Product Size");
       return;
     }
-
     // Deep clone of cartItems
     let newCartItems = structuredClone(cartItems);
     // if the item is not in the cart, add it in a new object
@@ -46,7 +45,7 @@ const ShopContextProvider = (props) => {
     setCartItems(newCartItems);
   };
 
-  // get cart count
+  // Function to calculate total number of items in cart (all quanrities added together)
   const getCartCount = () => {
     // Object.entries returns an array of key value pairs of our cartItems
     return Object.entries(cartItems).reduce(
@@ -67,7 +66,7 @@ const ShopContextProvider = (props) => {
     );
   };
 
-  // update cart quantity function v2
+  // Function to specifiy specific quantity for an item + size in cart. Remove item when quantity is 0.
   const updateCartQuantity = async (itemId, size, quantity) => {
     setCartItems((prevCart) => {
       const newCart = {
@@ -78,7 +77,6 @@ const ShopContextProvider = (props) => {
           [size]: quantity, // update specific size with new quantity
         },
       };
-
       // Cleanup: Remove empty entries
       // if the quantity is less than or equal to 0 and the product is in the cart
       if (quantity <= 0 && newCart[itemId]) {
@@ -90,12 +88,11 @@ const ShopContextProvider = (props) => {
           delete newCart[itemId];
         }
       }
-
       return newCart;
     });
   };
 
-  // get the cart amount/total price
+  // Function to calculate total price of all items in cart
   const getCartAmount = () => {
     return Object.entries(cartItems).reduce(
       (total, [productId, sizeQuantities]) => {
@@ -112,8 +109,10 @@ const ShopContextProvider = (props) => {
     );
   };
 
+  // Function to remove all items from cart
   const clearCart = () => {
     setCartItems({});
+    localStorage.removeItem("cartItems");
   };
 
   // store shared data  the products object. We can access any values via context API
