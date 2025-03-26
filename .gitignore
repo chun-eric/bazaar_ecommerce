@@ -25,6 +25,6 @@ dist-ssr
 *.env
 
 # ignore certain folders
-readmeassets/
+
 prompts/
 scripts/
