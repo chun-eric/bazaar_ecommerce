@@ -1,194 +1,216 @@
-# Bazaar Ecommerce Website
+# Bazaar Ecommerce
 
-A Frontend Ecommerce Website.
+![Bazaar Logo](./src/assets/logo.png)
 
-Day 1
+A modern, responsive frontend ecommerce platform built with React and Tailwind CSS. This project showcases a complete online shopping experience with intuitive navigation, dynamic product displays, and a seamless checkout process.
 
-- Project Setup, with Tailwind CSS and React
-- Prepare Image Assets and Dimensions
-- Prepare Folder Structure
-- Prepare Router and Routes with React Router Dom
-- Wrapped BrowserRouter in the main.jsx
-- Making the Navbar and responsive hover menu for the profile
-- Make Navbar, Navbar routes with NavLink and Link
-- Make Sidebar menu visiblility on and off.
-- Navbar is mobile responsive.
-- Hero Banner complete with responsive
-- Created a Context shop provider to share values across all components
-- Created a Latest Collections Component to render the latest 10 products
-- Created a Title Component to Dynamically Render the Title for Each products to display
-- Created a Product Item Component to map over for the Latest Collection
-- Created Best Seller Component to map over for the Best Seller Collection
+📋 Project Overview
+Bazaar is designed to provide users with an elegant and efficient shopping experience. The platform features a clean, minimalist design that puts products front and center while maintaining excellent performance across all devices.
+The application follows modern React practices including component-based architecture, context API for state management, and responsive design principles. It demonstrates the implementation of common ecommerce functionalities including product filtering, search, cart management, and checkout flow.
 
-Day 2
+## 🚀 Live Demo
 
-- Created Subscribe Component
-- Created Policy Component
-- Created Footer Component
+[View Live Demo](https://bazaar-ecommerce.vercel.app) 
 
-Day 3
+## ✨ Features
 
-- Created Collections Page
-- Created Product Filters Feature ( useCallBack)
-- Created Product Sort Feature ( useCallBack )
-- Created Search Bar in Collections (useContext, useLocation).
-- When clicking on Search icon it directs us immediately to Collections page and search bar shows up. (useLocation in react router dom)
+- **Responsive Design**: Fully optimized for all device sizes
+- **Dynamic Product Catalog**: Browse through various product categories
+- **Advanced Filtering**: Filter products by category, type, and more
+- **Search Functionality**: Find products quickly with the search feature
+- **Shopping Cart**: Add products, modify quantities, and view total
+- **Product Details**: View detailed information with images and reviews
+- **User Authentication**: Sign up and login functionality
+- **Checkout Process**: Complete order placement with delivery details
+- **Order History**: Track previous orders and their status
+- **Local Storage**: Cart items are saved to local storage for persistence
 
-Day 4
+## 📸 Screenshots
 
-- Created Search Feature. Display products based on search query. Updated the collections page with the search and showSearch from useContext. Added if conditions in the appliedFilter function and added search and showSearch as dependencies.
+### Homepage with Hero Banner
+![Homepage](./src/readmeassets/bazaar_1.png)
 
-Day 5 (Today)
+### Latest Collections
+![Latest Collections](./src/readmeassets/bazaar_2.png)
 
-- Created Individual Product Page based on its url. Issues big image not aligning height with small image
-- Bugs - related products not keeping it to 5 products
-  -- Stretch goals
+### Product Collection Page with Filters
+![Collections Page](./src/readmeassets/bazaar_4.png)
 
-  1. add breadcrumbs to product categories,
-  2. add tabs on the description and Reviews,
-  3. dynamically add and read reviews
+### Product Detail Page
+![Product Detail](./src/readmeassets/bazaar_5.png)
 
-- Created Add to cart Feature. Adds size and item addToCart function.
-- Added React toastify if add to cart button is pressed without any size selected.
-- Add the quantity dynamically to the cart icon getCartCount. Had trouble with the counter bug.
+### Shopping Cart
+![Shopping Cart](./src/readmeassets/bazaar_6.png)
 
-  Current solution seems overly complicated. Maybe try and look into zustand after completing first project completion run.
-  Also we should have a quantity section
+### Checkout Page
+![Checkout Page](./src/readmeassets/bazaar_9.png)
 
-Day 6 (Today)
+## 🛠️ Technologies Used
 
-- Created Cart Page
-- Show each product item in cart page
-- Delete each product item with updateCartQuantity function in the shopContext provider
-- Able to modify quantity amount for each product and dynamically update it in the cart icon using onChange with a handleQuantityChange function
-- CartTotal Component that updates the subtotal and total based on the product quantity including adding delivery fee
-- Created a getCartAmount function (got rid of async function as it was causing errors)
-- Also made sure that when there is no items in the cart the shipping fee should be 0.
-- \*\*\* Stretch Goals - save Cart to local storage \*\*\*
-- add useNavigate to the shopContext when clicking on the Proceed to check --> /place-order
+- **React**: Frontend library for building user interfaces
+- **React Router DOM**: For navigation and routing
+- **Context API**: For state management across components
+- **Tailwind CSS**: For styling and responsive design
+- **React Toastify**: For displaying notifications
+- **LocalStorage API**: For persisting cart data
 
----
+## 📦 Project Structure
 
-Day 7
+```
+bazaar-ecommerce/
+├── public/
+│   ├── images/
+│   └── index.html
+├── src/
+│   ├── components/
+│   │   ├── Cart/
+│   │   ├── Home/
+│   │   ├── Navbar/
+│   │   ├── Product/
+│   │   └── UI/
+│   ├── context/
+│   │   └── ShopContext.js
+│   ├── pages/
+│   │   ├── AboutPage.jsx
+│   │   ├── CartPage.jsx
+│   │   ├── CollectionsPage.jsx
+│   │   ├── HomePage.jsx
+│   │   ├── LoginPage.jsx
+│   │   ├── OrdersPage.jsx
+│   │   ├── PlaceOrderPage.jsx
+│   │   └── ProductPage.jsx
+│   ├── App.jsx
+│   └── main.jsx
+├── .gitignore
+├── package.json
+├── tailwind.config.js
+├── vite.config.js
+└── README.md
+```
 
-- Created Place Order Page. Had trouble with setting the active payments border. The issue was there was no color in tailwind css, so i just added a custom color.
-- Added a useNavigate value in the shopContext so all components can have access to it
-- Fix Created place order responsiveness
+## 🚀 Getting Started
 
-- Created My Order Page. Its still not linked to the login user so we cant track the actual orders put in the cart. Its just dummy data for the UI
-- Also need to fix responsiveness
+### Prerequisites
 
-- Created Login Page. Add the navigation link in our drop down menu on the profile icon. Linked it to login page. At Login page made a simple sign up and login form that changes based on state. Change to login form when clicking Login Here or change to sign up form when clicking Sign Up. This also includes changing button to the different state. Added a form submit handler function on the form.
+- Node.js (v14.0.0 or higher)
+- npm or yarn
 
-Day 8
+### Installation
 
-- Created About Us Page
+1. Clone the repository
+   ```bash
+   git clone https://github.com/yourusername/bazaar-ecommerce.git
+   cd bazaar-ecommerce
+   ```
 
-Day 9
+2. Install dependencies
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-- Reviewing our Ecommerce store. Its structure and functions
+3. Start the development server
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
 
-Here are my thoughts so far.
-Our App has Navbar and Footer set. It has a searchbar component to show on collections page and Routes to all our different pages.
+4. Open your browser and navigate to `http://localhost:{your port number}`
 
-There are 8 pages in our App (so far)
+## 📝 Development Progress
 
-1. Home
-2. Collection
-3. About
-4. Cart
-5. Orders
-6. PlaceOrders
-7. Product
-8. Login
+### Completed Features
 
-The entire App is wrapped in a ShopContextProvider and then the BrowserRouter. This will allow us to send and receive values across all our components.
+- ✅ Project setup with Tailwind CSS and React
+- ✅ Responsive Navbar with hover menu
+- ✅ Hero Banner
+- ✅ Latest Collections component
+- ✅ Best Sellers component
+- ✅ Product filtering and sorting
+- ✅ Search functionality
+- ✅ Product detail page with images and tabs
+- ✅ Add to cart feature
+- ✅ Shopping cart page with quantity modification
+- ✅ Checkout page with payment options
+- ✅ Order history page
+- ✅ Login/Signup page
+- ✅ About us page
+- ✅ Local storage for cart persistence
 
-The ShopContextProvider needs a prop sinces its children being the App itself can receive all the shared values.
+### In Progress
 
-The ShopContextProvider has key functions
+- 🔄 Backend development with Node.js
+- 🔄 User authentication and authorization (JWT)
+- 🔄 Payment gateway integration like Stripe and LemonSqueezy
+- 🔄 Order processing system
 
-1. addToCart
-2. getCartCount
-3. updateCartQuantity
-4. getCartAmount
+### Future Possible Enhancements
 
-It also provides access to the:
+- 📌 User dashboard
+- 📌 Robust Login and Authentication
+- 📌 Wishlist functionality
+- 📌 Indepth Product reviews and ratings system
+- 📌 Email notifications for orders
+- 📌 Adding Products to a headless CMS or database
 
-1. products catalogue (the entire products array)
-2. delivery fee (standardized)
-3. show search bar
-4. search text (setSearch)
-5. useNavigate (to navigate to certain pages via react router dom)
+## 💡 Key Implementations
 
-Components
+### Context API for State Management
 
-1. Cart
-2. Collection
-3. Contact
-4. Home
-5. Login
-6. Orders
-7. PlaceOrder
-8. Product
+```jsx
+// ShopContext.js
+import React, { createContext, useState, useEffect } from 'react';
 
-Refactoring the main functions in the shopContext.js
+export const ShopContext = createContext(null);
 
-1. getCartCount()
-2. updateCartQuantity()
-3. getCartAmount()
-4. addToCart()
-
-Main reason for refactoring is because there were to many nested if statements.
-
-Day 9
-
-- refactoring
-
-  1. Latest Collections design and code
-  2. Change the Bazaar Logo
-  3. Update Hero Image
-  4. Update copy for the bestsellers and latest collection
-  5. Issues with responsivness on the productData container for the images. It wasnt shrinking together.
-     \*\*\* the above issue is very buggy- This was very hard for some reason. Ended up adding a custom break point at 900px. The main issue was the big picture image. As you scale up in screen size the as it is object cover it doesnt contain the image in the cneter. So we had to use a custom breakpoint to stop it from growing. Probably there is a better solution like shrink or something but its taking way too much time. I will come back to this.
-
-  6. Adding breadcurmbs - complete
-  7. Started working on benefit toggle
-
-Day 10
-
-- Completed Benefit Toggle
-- Complete Tab Component
-- Complete Review. \*\*\* Bug issue, render stars in the review section and product review section. Separated Star and Render Stars into separate components. Okay it was simply a return error.
-
-Day 11
-
-- Finish Reviews system
-  1. calculate reviews average
-  2. add the stars fill for reviews in the reviews section and the product listing section. I was making a mistake when rendering the stars. I already had access to each individual review so all i needed to do was just access it. I was trying to get access to the productData array instead which is incorrect.
-  3. Add box shadow to the main large image
-  4. Change main image of new colletions. \*\*
-  5. Add box shadow and highlight -- done
-
-Day 12.
-
-1. Responsive container to go full screen
-2. In the cart, when clicking on image should be able to go the productDetails page
-3. Issue with the hero image being cropped below 1600px screen size
-4. fixed select size border orange not showing up
-
-Day 13.
-
-1.  In checkout page link to product Details page - Done
-2.  cart page - basic layout 
+export const ShopContextProvider = (props) => {
+  // State and functions implementation
+  // ...
   
+  const contextValue = {
+    products,
+    cart,
+    addToCart,
+    updateCartQuantity,
+    getCartCount,
+    getCartAmount,
+    deliveryFee,
+    showSearch,
+    setShowSearch,
+    search,
+    setSearch,
+    navigate
+  };
 
-Day 14.
-1. Fixed Footer design and responsiveness - Done
-2.  checkout page icons for payment
+  return (
+    <ShopContext.Provider value={contextValue}>
+      {props.children}
+    </ShopContext.Provider>
+  );
+};
+```
 
-- Testing
-- Accessiblity issues testing
-- Update all Copy
-- Update last minute design changes and pricing
-- Update any images
+### Local Storage Implementation
+
+```jsx
+// Cart persistence with localStorage
+useEffect(() => {
+  const savedCart = localStorage.getItem('cart');
+  if (savedCart) {
+    setCart(JSON.parse(savedCart));
+  }
+}, []);
+
+useEffect(() => {
+  localStorage.setItem('cart', JSON.stringify(cart));
+}, [cart]);
+```
+
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+

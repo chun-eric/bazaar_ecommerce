@@ -21,11 +21,11 @@ const Home = () => {
           <BestSeller />
         </div>
       </div>
-      <div className='w-full'>
-        <Subscribe />
-      </div>
       <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
         <Policy />
+      </div>
+      <div className='w-full'>
+        <Subscribe />
       </div>
     </div>
   );

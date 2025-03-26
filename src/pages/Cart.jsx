@@ -7,14 +7,8 @@ import { Link } from "react-router-dom";
 
 const Cart = () => {
   // access product data, currency and cartItems using context api
-  const {
-    products,
-    currency,
-    cartItems,
-    updateCartQuantity,
-    navigate,
-    clearCart,
-  } = useContext(ShopContext);
+  const { products, currency, cartItems, updateCartQuantity, navigate } =
+    useContext(ShopContext);
 
   // store cart data
   const [cartData, setCartData] = useState([]);

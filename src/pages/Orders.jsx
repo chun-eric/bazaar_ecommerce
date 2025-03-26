@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { ShopContext } from "../context/shopContext";
 import Title from "../components/Title";
 
@@ -6,7 +6,7 @@ const Orders = () => {
   const { products, currency } = useContext(ShopContext);
   return (
     <div className='py-16 border-t'>
-      <div className='text-2xl'>
+      <div className='mb-10 text-2xl'>
         <Title text1={"MY"} text2={"ORDERS"} />
       </div>
 
